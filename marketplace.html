@@ -11,21 +11,85 @@ body {
   background: #0b0f14;
   color: #e5e7eb;
   margin: 0;
-  padding: 24px;
+  padding: 0;
 }
+header {
+  background: #121826;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 20px;
+}
+header .logo img {
+  width: 48px;
+  height: 48px;
+}
+nav a {
+  color: #e5e7eb;
+  text-decoration: none;
+  margin-left: 24px;
+  font-weight: 500;
+}
+nav a:hover { color: #3b82f6; }
+
+.hero {
+  background: #1e2330;
+  text-align: center;
+  padding: 48px 24px;
+}
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+.hero p {
+  font-size: 18px;
+  color: #9ca3af;
+  margin-bottom: 24px;
+}
+.btn-hero {
+  background: #3b82f6;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-hero:hover { background: #60a5fa; }
+
+.category-select {
+  margin: 24px auto;
+  text-align: center;
+}
+.category-select select {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #121826;
+  color: #e5e7eb;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.category-select select:hover { background: #1f2535; }
+
 .container {
   max-width: 1200px;
   margin: auto;
+  padding: 24px;
 }
-h1 {
-  text-align: center;
-  margin-bottom: 32px;
-}
+
 .market-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
+
 .card {
   background: #121826;
   border-radius: 14px;
@@ -44,13 +108,10 @@ h1 {
   object-fit: contain;
   margin-bottom: 16px;
 }
-.card h3 {
-  margin: 8px 0;
-}
-.card p {
-  color: #9ca3af;
-  text-align: left;
-}
+.card h3 { margin: 8px 0; }
+.card p { color: #9ca3af; text-align: left; }
+.card ul { text-align: left; padding-left: 20px; color: #9ca3af; }
+
 .btn-buy, .btn-robux {
   display: inline-block;
   padding: 10px 20px;
@@ -60,27 +121,59 @@ h1 {
   text-decoration: none;
   color: #fff;
 }
-.btn-buy {
-  background: #3b82f6;
-}
+.btn-buy { background: #3b82f6; }
 .btn-buy:hover { background: #60a5fa; }
-.btn-robux {
-  background: #10b981;
-}
+.btn-robux { background: #10b981; }
 .btn-robux:hover { background: #34d399; }
-.stripe-icons {
+
+.supported {
   margin-top: 12px;
+  text-align: left;
 }
-.stripe-icons img {
-  height: 20px;
-  margin: 0 4px;
+.supported span {
+  display: inline-block;
+  margin-right: 6px;
+}
+.supported img, .supported svg {
+  width: 32px;
+  height: 32px;
   vertical-align: middle;
 }
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Jackson County Roleplay Marketplace</h1>
+
+<header>
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="JCRP Logo">
+    Jackson County Roleplay
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="rules.html">Rules</a>
+    <a href="departments.html">Departments</a>
+    <a href="staff.html">Staff</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Jackson County Roleplay Marketplace</h1>
+  <p>Choose a tier, donation, or sponsored option below to support our server and get perks!</p>
+  <a href="#market" class="btn-hero">View Marketplace</a>
+</section>
+
+<div class="category-select">
+  <select onchange="location = this.value;">
+    <option value="#market">Tiers</option>
+    <option value="#donation">Donation</option>
+    <option value="#ads">Paid Advertisements</option>
+    <option value="#giveaways">Sponsored Giveaways</option>
+  </select>
+</div>
+
+<div class="container" id="market">
 <div class="market-grid">
 
 <!-- Bronze -->
@@ -96,9 +189,17 @@ h1 {
 <li>Image and GIF perms in all channels</li>
 <li>Access to ⁠📌┃priority-mod-calls</li>
 </ul>
-<div class="stripe-icons">
-  <img src="https://stripe.com/img/v3/home/twitter.png" alt="Supported by Stripe">
-  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+<div class="supported">
+<strong>Supported:</strong>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/amex.svg" alt="Amex"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/mastercard.svg" alt="Mastercard"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/visa.svg" alt="Visa"></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g><rect x="2" y="7" width="28" height="18" rx="3" ry="3" fill="#fff"></rect></g>
+  </svg>
+</span>
+<span><img src="https://js.stripe.com/v3/fingerprinted/img/link-69133f6f8d9cceaf6643b54c15305d43.svg" alt="Stripe"></span>
 </div>
 </div>
 
@@ -117,8 +218,15 @@ h1 {
 <li>Image and GIF perms</li>
 <li>Access to ⁠📌┃priority-mod-calls</li>
 </ul>
-<div class="stripe-icons">
-  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+<div class="supported">
+<strong>Supported:</strong>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/amex.svg" alt="Amex"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/mastercard.svg" alt="Mastercard"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/visa.svg" alt="Visa"></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g><rect x="2" y="7" width="28" height="18" rx="3" ry="3" fill="#fff"></rect></g></svg>
+</span>
+<span><img src="https://js.stripe.com/v3/fingerprinted/img/link-69133f6f8d9cceaf6643b54c15305d43.svg" alt="Stripe"></span>
 </div>
 </div>
 
@@ -138,8 +246,15 @@ h1 {
 <li>Image and GIF perms</li>
 <li>Access to ⁠📌┃priority-mod-calls</li>
 </ul>
-<div class="stripe-icons">
-  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+<div class="supported">
+<strong>Supported:</strong>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/amex.svg" alt="Amex"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/mastercard.svg" alt="Mastercard"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/visa.svg" alt="Visa"></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g><rect x="2" y="7" width="28" height="18" rx="3" ry="3" fill="#fff"></rect></g></svg>
+</span>
+<span><img src="https://js.stripe.com/v3/fingerprinted/img/link-69133f6f8d9cceaf6643b54c15305d43.svg" alt="Stripe"></span>
 </div>
 </div>
 
@@ -150,25 +265,33 @@ h1 {
 <p>$24.99</p>
 <a class="btn-buy" href="https://buy.stripe.com/6oU9AT6PC7bib0Rdn8cjS04?locale=en&__embed_source=buy_btn_1RXIJxFkwZQ3tDxnCk9pSOu7" target="_blank">Buy</a>
 <a class="btn-robux" href="https://www.roblox.com/catalog/98614479625198/Jackson-County-Roleplay-Tier-4" target="_blank">2000 Robux</a>
-<p>Platinum Tier contains all premium perks!</p>
+<p>Platinum Tier contains all top perks to enhance roleplay and community experience!</p>
 <ul>
 <li>$20,000 every hour in economy</li>
 <li>x1 Custom Role</li>
 <li>x1 Custom Office</li>
 <li>x3 Able to reset all moderations</li>
-<li>Permanant Discord Booster perks</li>
+<li>Permanent Discord Booster Perks</li>
 <li>Office key of your choice</li>
 <li>Priority for all applications</li>
 <li>Image and GIF perms</li>
 <li>Access to ⁠📸┃official-media</li>
 <li>Access to ⁠📌┃priority-mod-calls</li>
 </ul>
-<div class="stripe-icons">
-  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+<div class="supported">
+<strong>Supported:</strong>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/amex.svg" alt="Amex"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/mastercard.svg" alt="Mastercard"></span>
+<span><img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/visa.svg" alt="Visa"></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g><rect x="2" y="7" width="28" height="18" rx="3" ry="3" fill="#fff"></rect></g></svg>
+</span>
+<span><img src="https://js.stripe.com/v3/fingerprinted/img/link-69133f6f8d9cceaf6643b54c15305d43.svg" alt="Stripe"></span>
 </div>
 </div>
 
 </div>
 </div>
+
 </body>
 </html>
