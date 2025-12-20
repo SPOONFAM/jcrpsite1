@@ -1,162 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jackson County Roleplay - Marketplace</title>
-  <meta name="description" content="Marketplace for Jackson County Roleplay — buy Tiers, Donations, Paid Advertisements, and Sponsored Giveaways.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCRP Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0b0f14;
+  color: #e5e7eb;
+  margin: 0;
+  padding: 24px;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: #121826;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+.card h3 {
+  margin: 8px 0;
+}
+.card p {
+  color: #9ca3af;
+  text-align: left;
+}
+.btn-buy, .btn-robux {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 8px 4px 0 4px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-buy {
+  background: #3b82f6;
+}
+.btn-buy:hover { background: #60a5fa; }
+.btn-robux {
+  background: #10b981;
+}
+.btn-robux:hover { background: #34d399; }
+.stripe-icons {
+  margin-top: 12px;
+}
+.stripe-icons img {
+  height: 20px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+</style>
 </head>
 <body>
+<div class="container">
+<h1>Jackson County Roleplay Marketplace</h1>
+<div class="market-grid">
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="logo">
-        Jackson County Roleplay
-        <span class="badge">Public ER:LC</span>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="rules.html">Rules</a>
-        <a href="departments.html">Departments</a>
-        <a href="staff.html">Staff</a>
-        <a href="contact.html">Contact</a>
-        <a href="marketplace.html">Marketplace</a>
-      </nav>
-    </div>
-  </header>
+<!-- Bronze -->
+<div class="card">
+<img src="assets/images/bronze.png" alt="Bronze Tier">
+<h3>Tier 1 | Bronze</h3>
+<p>$3.99</p>
+<a class="btn-buy" href="https://buy.stripe.com/cNieVd8XKeDKglbbf0cjS01?locale=en&__embed_source=buy_btn_1RWtFiFkwZQ3tDxn1RZSzV7f" target="_blank">Buy</a>
+<a class="btn-robux" href="https://www.roblox.com/catalog/140013985891370/Jackson-County-Roleplay-Bronze-Tier" target="_blank">300 Robux</a>
+<p>Bronze Tier contains basic perks to enhance roleplay and community experience!</p>
+<ul>
+<li>x1 Able to reset all moderations</li>
+<li>Image and GIF perms in all channels</li>
+<li>Access to ⁠📌┃priority-mod-calls</li>
+</ul>
+<div class="stripe-icons">
+  <img src="https://stripe.com/img/v3/home/twitter.png" alt="Supported by Stripe">
+  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+</div>
+</div>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
+<!-- Silver -->
+<div class="card">
+<img src="assets/images/silver.png" alt="Silver Tier">
+<h3>Tier 2 | Silver</h3>
+<p>$8.99</p>
+<a class="btn-buy" href="https://buy.stripe.com/28EbJ12zm0MU5Gx5UGcjS02?locale=en&__embed_source=buy_btn_1RXI0wFkwZQ3tDxngWZo1k1c" target="_blank">Buy</a>
+<a class="btn-robux" href="https://www.roblox.com/catalog/83048806537101/Jackson-County-Roleplay-Silver-Tier" target="_blank">650 Robux</a>
+<p>Silver Tier contains perks to enhance roleplay and community experience!</p>
+<ul>
+<li>$5,000 every hour in economy</li>
+<li>x1 Custom Office</li>
+<li>x2 Able to reset all moderations</li>
+<li>Image and GIF perms</li>
+<li>Access to ⁠📌┃priority-mod-calls</li>
+</ul>
+<div class="stripe-icons">
+  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+</div>
+</div>
 
-    <!-- HERO / Marketplace Intro -->
-    <section class="hero fade-in-up">
-      <div class="hero-card-centered hero-card">
-        <div class="hero-header">
-          <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="hero-logo">
-          <h1>Marketplace</h1>
-        </div>
-        <p>Welcome to the Jackson County Roleplay Marketplace. Here you can purchase tiers, donate, buy advertisements, or participate in sponsored giveaways.</p>
-      </div>
-    </section>
+<!-- Gold -->
+<div class="card">
+<img src="assets/images/gold.png" alt="Gold Tier">
+<h3>Tier 3 | Gold</h3>
+<p>$12.99</p>
+<a class="btn-buy" href="https://buy.stripe.com/aFa7sLc9W9jqed3erccjS03?locale=en&__embed_source=buy_btn_1RXIFLFkwZQ3tDxn0IKzs6GZ" target="_blank">Buy</a>
+<a class="btn-robux" href="https://www.roblox.com/catalog/111934994233463/Jackson-County-Roleplay-Gold-Tier" target="_blank">1000 Robux</a>
+<p>Gold Tier contains perks to enhance roleplay and community experience!</p>
+<ul>
+<li>$10,000 every hour in economy</li>
+<li>x1 Custom Role</li>
+<li>x1 Custom Office</li>
+<li>x3 Able to reset all moderations</li>
+<li>Image and GIF perms</li>
+<li>Access to ⁠📌┃priority-mod-calls</li>
+</ul>
+<div class="stripe-icons">
+  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+</div>
+</div>
 
-    <!-- Marketplace Dropdown -->
-    <section class="fade-in-up">
-      <div class="hero-card-centered card">
-        <h2>Purchase Options</h2>
-        <p>Select a category below to see available items and buy options.</p>
+<!-- Platinum -->
+<div class="card">
+<img src="assets/images/plat.png" alt="Platinum Tier">
+<h3>Tier 4 | Platinum</h3>
+<p>$24.99</p>
+<a class="btn-buy" href="https://buy.stripe.com/6oU9AT6PC7bib0Rdn8cjS04?locale=en&__embed_source=buy_btn_1RXIJxFkwZQ3tDxnCk9pSOu7" target="_blank">Buy</a>
+<a class="btn-robux" href="https://www.roblox.com/catalog/98614479625198/Jackson-County-Roleplay-Tier-4" target="_blank">2000 Robux</a>
+<p>Platinum Tier contains all premium perks!</p>
+<ul>
+<li>$20,000 every hour in economy</li>
+<li>x1 Custom Role</li>
+<li>x1 Custom Office</li>
+<li>x3 Able to reset all moderations</li>
+<li>Permanant Discord Booster perks</li>
+<li>Office key of your choice</li>
+<li>Priority for all applications</li>
+<li>Image and GIF perms</li>
+<li>Access to ⁠📸┃official-media</li>
+<li>Access to ⁠📌┃priority-mod-calls</li>
+</ul>
+<div class="stripe-icons">
+  <span>Supported Payments: Amex, Visa, Mastercard, Google Pay</span>
+</div>
+</div>
 
-        <div class="dropdown">
-          <button class="btn primary dropdown-btn">Select Option</button>
-          <div class="dropdown-content">
-            <a href="#" data-target="tiers">Tiers</a>
-            <a href="#" data-target="donation">Donation</a>
-            <a href="#" data-target="ads">Paid Advertisements</a>
-            <a href="#" data-target="giveaways">Sponsored Giveaways</a>
-          </div>
-        </div>
-
-        <!-- Sections for each dropdown option -->
-        <div id="tiers" class="market-section" style="display:none; margin-top:20px;">
-          <h3>Tiers</h3>
-          <div class="grid">
-            <div class="card">
-              <h4>Silver Tier</h4>
-              <p>Access to special perks, priority events.</p>
-              <a class="btn primary" href="#">Buy Now</a>
-            </div>
-            <div class="card">
-              <h4>Gold Tier</h4>
-              <p>All Silver perks + exclusive items.</p>
-              <a class="btn primary" href="#">Buy Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="donation" class="market-section" style="display:none; margin-top:20px;">
-          <h3>Donation</h3>
-          <div class="grid">
-            <div class="card">
-              <h4>Support JCRP</h4>
-              <p>Donate any amount to help maintain the server.</p>
-              <a class="btn primary" href="#">Donate</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="ads" class="market-section" style="display:none; margin-top:20px;">
-          <h3>Paid Advertisements</h3>
-          <div class="grid">
-            <div class="card">
-              <h4>Discord Advertisement</h4>
-              <p>Promote your group or event in our Discord server.</p>
-              <a class="btn primary" href="#">Buy</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="giveaways" class="market-section" style="display:none; margin-top:20px;">
-          <h3>Sponsored Giveaways</h3>
-          <div class="grid">
-            <div class="card">
-              <h4>Giveaway Sponsorship</h4>
-              <p>Run a giveaway in the community sponsored by you.</p>
-              <a class="btn primary" href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer">© <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies</div>
-  </footer>
-
-  <script>
-    // Set footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Dropdown logic
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownBtn = dropdown.querySelector('.dropdown-btn');
-    const dropdownLinks = dropdown.querySelectorAll('.dropdown-content a');
-    const sections = document.querySelectorAll('.market-section');
-
-    dropdownBtn.addEventListener('click', () => {
-      dropdown.classList.toggle('show');
-    });
-
-    window.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('show');
-      }
-    });
-
-    // Show selected section
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.dataset.target;
-
-        sections.forEach(sec => {
-          if (sec.id === targetId) {
-            sec.style.display = 'block';
-          } else {
-            sec.style.display = 'none';
-          }
-        });
-        dropdown.classList.remove('show');
-      });
-    });
-  </script>
+</div>
+</div>
 </body>
 </html>
