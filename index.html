@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jackson County Roleplay</title>
+  <meta name="description" content="Jackson County Roleplay — a public ER:LC roleplay server based in Missouri's Jackson County.">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
+        <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="logo">
         Jackson County Roleplay
         <span class="badge">Public ER:LC</span>
       </div>
@@ -25,57 +30,84 @@
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
+
+    <!-- HERO -->
     <section class="hero fade-in-up">
       <div class="hero-grid">
-        <div class="card hero-card">
+        <div class="card hero-card hero-card-centered">
           <div class="hero-header">
-            <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
+            <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="hero-logo">
             <h1>Jackson County Roleplay</h1>
           </div>
-          <p>Public ER:LC roleplay server based in Missouri’s Jackson County.</p>
+          <p>A public ER:LC roleplay community based in Missouri’s Jackson County. Focused on realistic roleplay, fair moderation, and welcoming players.</p>
           <div class="cta">
-            <a class="btn primary pulse" href="https://discord.gg/ZrjZcFphjr" target="_blank">Join Discord</a>
+            <a class="btn primary pulse" href="https://discord.gg/ZrjZcFphjr" target="_blank">Join Our Discord</a>
             <a class="btn secondary" href="rules.html">Server Rules</a>
           </div>
         </div>
-
-        <div class="card stats" id="server-stats">
-          <div class="stat"><strong id="players-online">0</strong><span>Players Online</span></div>
-          <div class="stat"><strong id="unique-week">0</strong><span>Unique This Week</span></div>
-          <div class="stat"><strong id="server-status">Offline</strong><span>Status</span></div>
+        <div class="card stats">
+          <div class="stat"><strong>Public</strong><span>Open Server</span></div>
+          <div class="stat"><strong>13+</strong><span>Maturity</span></div>
+          <div class="stat"><strong>Missouri</strong><span>Jackson County</span></div>
         </div>
       </div>
     </section>
+
+    <!-- HOW TO JOIN -->
+    <section id="how" class="fade-in-up">
+      <h2>How to Join</h2>
+      <div class="grid">
+        <div class="card"><h3>1. Join Discord</h3><p>Enter our Discord and read the welcome channels.</p></div>
+        <div class="card"><h3>2. Review Rules</h3><p>Understand our roleplay standards and expectations.</p></div>
+        <div class="card"><h3>3. Start Roleplaying</h3><p>Join the ER:LC server and enjoy realistic RP.</p></div>
+      </div>
+    </section>
+
+    <!-- DEPARTMENTS PREVIEW -->
+    <section id="departments" class="fade-in-up">
+      <h2>Departments</h2>
+      <div class="grid">
+        <div class="card"><h3>Law Enforcement</h3><p>Traffic enforcement, patrol, investigations.</p></div>
+        <div class="card"><h3>Fire & EMS</h3><p>Fire response, medical RP, emergencies.</p></div>
+        <div class="card"><h3>Civilian</h3><p>Businesses, daily life, story-driven RP.</p></div>
+      </div>
+      <div class="cta">
+        <a class="btn secondary" href="departments.html">View All Departments</a>
+      </div>
+    </section>
+
+    <!-- STAFF TEASER -->
+    <section id="staff" class="fade-in-up">
+      <h2>Staff Team</h2>
+      <div class="card">
+        <p>Our experienced staff team ensures fair, quality roleplay for all members. Dedicated moderators monitor in-game and Discord activity to maintain order and fun.</p>
+        <div class="cta">
+          <a class="btn secondary" href="staff.html">Meet the Staff</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section id="contact" class="fade-in-up">
+      <h2>Contact</h2>
+      <div class="card">
+        <p><strong>Discord:</strong> <a href="https://discord.gg/ZrjZcFphjr" target="_blank">Join Here</a></p>
+        <p><strong>Server Join Key:</strong> jcrp</p>
+        <p><strong>Age Requirement:</strong> 13+</p>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer">
-      © <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies
-    </div>
+    <div class="container footer">© <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies</div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Replace URL with your Cloudflare Worker or VPS endpoint
-    const statsUrl = 'jcrp-stats-api.leobro629.workers.dev/stats';
-
-    async function fetchStats() {
-      try {
-        const res = await fetch(statsUrl);
-        const data = await res.json();
-
-        document.getElementById('players-online').textContent = data.playersOnline;
-        document.getElementById('unique-week').textContent = data.uniquePlayersWeek;
-        document.getElementById('server-status').textContent = data.serverStatus;
-      } catch (err) {
-        console.error('Failed to fetch stats:', err);
-      }
-    }
-
-    fetchStats();
-    setInterval(fetchStats, 15000); // Refresh every 15 seconds
   </script>
 
 </body>
