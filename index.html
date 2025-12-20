@@ -109,7 +109,7 @@
     // Fetch stats from VPS
     async function updateStats() {
       try {
-        const res = await fetch('http://YOUR_VPS_IP:3000/stats'); // Replace YOUR_VPS_IP with your VPS address
+        const res = await fetch('http://192.135.112.6:3000/stats'); // Replace YOUR_VPS_IP with your VPS address
         const data = await res.json();
 
         document.getElementById('players-online').textContent = data.playersOnline;
@@ -126,3 +126,4 @@
 
 </body>
 </html>
+
