@@ -47,9 +47,7 @@
             <a class="btn secondary" href="rules.html">Server Rules</a>
           </div>
         </div>
-
-        <!-- STATS -->
-        <div class="card stats">
+        <div class="card stats" id="stats-card">
           <div class="stat"><strong id="players-online">0</strong><span>Players Online</span></div>
           <div class="stat"><strong id="unique-week">0</strong><span>Unique This Week</span></div>
           <div class="stat"><strong id="server-status">Offline</strong><span>Status</span></div>
@@ -103,27 +101,26 @@
   </footer>
 
   <script>
-    // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Fetch stats from VPS
-    async function updateStats() {
+    // Fetch live stats from your VPS
+    async function loadStats() {
       try {
-        const res = await fetch('http://192.135.112.6:3000/stats'); // Replace YOUR_VPS_IP with your VPS address
+        const res = await fetch('http://192.135.112.6:3000/stats'); // Replace YOUR_VPS_IP
         const data = await res.json();
 
         document.getElementById('players-online').textContent = data.playersOnline;
         document.getElementById('unique-week').textContent = data.uniquePlayersWeek;
         document.getElementById('server-status').textContent = data.serverStatus;
       } catch (err) {
-        console.error('Failed to fetch stats', err);
+        console.error('Failed to load stats:', err);
+        document.getElementById('server-status').textContent = 'Offline';
       }
     }
 
-    updateStats();
-    setInterval(updateStats, 30000); // refresh every 30s
+    window.onload = loadStats;
+    setInterval(loadStats, 30000); // Refresh stats every 30s
   </script>
 
 </body>
 </html>
-
