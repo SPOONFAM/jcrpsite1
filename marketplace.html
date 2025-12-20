@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jackson County Roleplay - Marketplace</title>
+  <meta name="description" content="Marketplace for Jackson County Roleplay — buy Tiers, Donations, Paid Advertisements, and Sponsored Giveaways.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="logo">
+        Jackson County Roleplay
+        <span class="badge">Public ER:LC</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="departments.html">Departments</a>
+        <a href="staff.html">Staff</a>
+        <a href="contact.html">Contact</a>
+        <a href="marketplace.html">Marketplace</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- HERO / Marketplace Intro -->
+    <section class="hero fade-in-up">
+      <div class="hero-card-centered hero-card">
+        <div class="hero-header">
+          <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="hero-logo">
+          <h1>Marketplace</h1>
+        </div>
+        <p>Welcome to the Jackson County Roleplay Marketplace. Here you can purchase tiers, donate, buy advertisements, or participate in sponsored giveaways.</p>
+      </div>
+    </section>
+
+    <!-- Marketplace Dropdown -->
+    <section class="fade-in-up">
+      <div class="hero-card-centered card">
+        <h2>Purchase Options</h2>
+        <p>Select a category below to see available items and buy options.</p>
+
+        <div class="dropdown">
+          <button class="btn primary dropdown-btn">Select Option</button>
+          <div class="dropdown-content">
+            <a href="#" data-target="tiers">Tiers</a>
+            <a href="#" data-target="donation">Donation</a>
+            <a href="#" data-target="ads">Paid Advertisements</a>
+            <a href="#" data-target="giveaways">Sponsored Giveaways</a>
+          </div>
+        </div>
+
+        <!-- Sections for each dropdown option -->
+        <div id="tiers" class="market-section" style="display:none; margin-top:20px;">
+          <h3>Tiers</h3>
+          <div class="grid">
+            <div class="card">
+              <h4>Silver Tier</h4>
+              <p>Access to special perks, priority events.</p>
+              <a class="btn primary" href="#">Buy Now</a>
+            </div>
+            <div class="card">
+              <h4>Gold Tier</h4>
+              <p>All Silver perks + exclusive items.</p>
+              <a class="btn primary" href="#">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="donation" class="market-section" style="display:none; margin-top:20px;">
+          <h3>Donation</h3>
+          <div class="grid">
+            <div class="card">
+              <h4>Support JCRP</h4>
+              <p>Donate any amount to help maintain the server.</p>
+              <a class="btn primary" href="#">Donate</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="ads" class="market-section" style="display:none; margin-top:20px;">
+          <h3>Paid Advertisements</h3>
+          <div class="grid">
+            <div class="card">
+              <h4>Discord Advertisement</h4>
+              <p>Promote your group or event in our Discord server.</p>
+              <a class="btn primary" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="giveaways" class="market-section" style="display:none; margin-top:20px;">
+          <h3>Sponsored Giveaways</h3>
+          <div class="grid">
+            <div class="card">
+              <h4>Giveaway Sponsorship</h4>
+              <p>Run a giveaway in the community sponsored by you.</p>
+              <a class="btn primary" href="#">Participate</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer">© <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies</div>
+  </footer>
+
+  <script>
+    // Set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dropdown logic
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownBtn = dropdown.querySelector('.dropdown-btn');
+    const dropdownLinks = dropdown.querySelectorAll('.dropdown-content a');
+    const sections = document.querySelectorAll('.market-section');
+
+    dropdownBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('show');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // Show selected section
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.dataset.target;
+
+        sections.forEach(sec => {
+          if (sec.id === targetId) {
+            sec.style.display = 'block';
+          } else {
+            sec.style.display = 'none';
+          }
+        });
+        dropdown.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
