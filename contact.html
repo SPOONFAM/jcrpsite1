@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jackson County Roleplay - Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Contact form styling */
+    .contact-form {
+      max-width: 600px;
+      margin: 32px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      resize: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .contact-form button {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: var(--accent-glow);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
+        Jackson County Roleplay
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="departments.html">Departments</a>
+        <a href="staff.html">Staff</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in-up">
+    <div class="hero-center">
+      <div class="card hero-card-matched">
+        <div class="hero-header">
+          <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
+          <h1>Contact Us</h1>
+        </div>
+        <p>If you have questions, suggestions, or want to reach the Jackson County Roleplay team, please fill out the form below. We'll get back to you as soon as possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="fade-in-up">
+    <div class="container">
+      <form class="contact-form" action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer container">
+      &copy; 2025 Jackson County Roleplay
+    </div>
+  </footer>
+</body>
+</html>
