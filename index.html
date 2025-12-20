@@ -47,10 +47,12 @@
             <a class="btn secondary" href="rules.html">Server Rules</a>
           </div>
         </div>
-        <div class="card stats" id="stats-card">
-          <div class="stat"><strong id="players-online">0</strong><span>Players Online</span></div>
-          <div class="stat"><strong id="unique-week">0</strong><span>Unique This Week</span></div>
-          <div class="stat"><strong id="server-status">Offline</strong><span>Status</span></div>
+
+        <!-- INITIAL STATS CARD -->
+        <div class="card stats">
+          <div class="stat"><strong id="playersOnline">0</strong><span>Players Online</span></div>
+          <div class="stat"><strong id="uniquePlayers">0</strong><span>Unique This Week</span></div>
+          <div class="stat"><strong id="serverStatus">Offline</strong><span>Status</span></div>
         </div>
       </div>
     </section>
@@ -80,6 +82,7 @@
       <h2>Staff Team</h2>
       <div class="card">
         <p>Our experienced staff team is dedicated to maintaining quality roleplay and a fair environment for all players.</p>
+        <a class="btn primary pulse" href="https://melonly.xyz/forms/7325563178731966464" target="_blank">Apply as Staff</a>
       </div>
     </section>
 
@@ -87,9 +90,9 @@
     <section id="contact" class="fade-in-up">
       <h2>Contact</h2>
       <div class="card">
-        <p>Discord: <a href="https://discord.gg/ZrjZcFphjr" target="_blank">https://discord.gg/ZrjZcFphjr</a></p>
-        <p>Server Join Key: jcrp</p>
-        <p>Age Requirement: 13+</p>
+        <p><strong>Discord:</strong> <a href="https://discord.gg/ZrjZcFphjr" target="_blank">https://discord.gg/ZrjZcFphjr</a></p>
+        <p><strong>Server Join Key:</strong> jcrp</p>
+        <p><strong>Age Requirement:</strong> 13+</p>
       </div>
     </section>
 
@@ -100,26 +103,19 @@
     <div class="container footer">© <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies</div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Fetch live stats from your VPS
-    async function loadStats() {
-      try {
-        const res = await fetch('http://192.135.112.6:3000/stats'); // Replace YOUR_VPS_IP
-        const data = await res.json();
-
-        document.getElementById('players-online').textContent = data.playersOnline;
-        document.getElementById('unique-week').textContent = data.uniquePlayersWeek;
-        document.getElementById('server-status').textContent = data.serverStatus;
-      } catch (err) {
-        console.error('Failed to load stats:', err);
-        document.getElementById('server-status').textContent = 'Offline';
-      }
-    }
-
-    window.onload = loadStats;
-    setInterval(loadStats, 30000); // Refresh stats every 30s
+    // Fetch live stats from Cloudflare Worker
+    fetch("https://jcrp-stats-api.leobro629.workers.dev") // replace with your Worker URL
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("playersOnline").textContent = data.playersOnline;
+        document.getElementById("uniquePlayers").textContent = data.uniquePlayersWeek;
+        document.getElementById("serverStatus").textContent = data.serverStatus;
+      })
+      .catch(err => console.error("Error fetching stats:", err));
   </script>
 
 </body>
