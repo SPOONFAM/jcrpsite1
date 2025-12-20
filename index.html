@@ -47,10 +47,12 @@
             <a class="btn secondary" href="rules.html">Server Rules</a>
           </div>
         </div>
+
+        <!-- STATS -->
         <div class="card stats">
-          <div class="stat"><strong>Public</strong><span>Open Server</span></div>
-          <div class="stat"><strong>13+</strong><span>Maturity</span></div>
-          <div class="stat"><strong>Missouri</strong><span>Jackson County</span></div>
+          <div class="stat"><strong id="players-online">0</strong><span>Players Online</span></div>
+          <div class="stat"><strong id="unique-week">0</strong><span>Unique This Week</span></div>
+          <div class="stat"><strong id="server-status">Offline</strong><span>Status</span></div>
         </div>
       </div>
     </section>
@@ -87,7 +89,9 @@
     <section id="contact" class="fade-in-up">
       <h2>Contact</h2>
       <div class="card">
-        <p>Have questions? Reach out to us through our Discord server.</p>
+        <p>Discord: <a href="https://discord.gg/ZrjZcFphjr" target="_blank">https://discord.gg/ZrjZcFphjr</a></p>
+        <p>Server Join Key: jcrp</p>
+        <p>Age Requirement: 13+</p>
       </div>
     </section>
 
@@ -99,9 +103,26 @@
   </footer>
 
   <script>
+    // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Fetch stats from VPS
+    async function updateStats() {
+      try {
+        const res = await fetch('http://YOUR_VPS_IP:3000/stats'); // Replace YOUR_VPS_IP with your VPS address
+        const data = await res.json();
+
+        document.getElementById('players-online').textContent = data.playersOnline;
+        document.getElementById('unique-week').textContent = data.uniquePlayersWeek;
+        document.getElementById('server-status').textContent = data.serverStatus;
+      } catch (err) {
+        console.error('Failed to fetch stats', err);
+      }
+    }
+
+    updateStats();
+    setInterval(updateStats, 30000); // refresh every 30s
   </script>
 
 </body>
 </html>
-
