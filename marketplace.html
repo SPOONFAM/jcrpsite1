@@ -1,215 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>JCRP Marketplace</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>JCRP Marketplace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Stripe Buy Button (ONLY USED IN DONATIONS) -->
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<!-- Stripe Buy Button -->
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
-  <style>
-    :root {
-      --bg: #0b0f1a;
-      --glass: rgba(255,255,255,0.08);
-      --border: rgba(255,255,255,0.15);
-      --text: #ffffff;
-      --muted: #b9c0d4;
-      --blue: #3b82f6;
-    }
+<style>
+:root {
+  --bg:#0b0f14;
+  --panel:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#3b82f6;
+  --accent-glow:#60a5fa;
+  --radius:18px;
+}
 
-    * {
-      box-sizing: border-box;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,sans-serif;}
 
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #10162a, var(--bg));
-      color: var(--text);
-    }
+body{
+  background:radial-gradient(circle at top,#121b33,var(--bg));
+  color:var(--text);
+  min-height:100vh;
+}
 
-    /* TOP BAR */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 28px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
+/* NAV */
+header{
+  padding:18px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(11,15,20,.75);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
 
-    header img {
-      height: 42px;
-    }
+header img{height:40px}
 
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
+/* HERO */
+.hero{
+  display:flex;
+  justify-content:center;
+  padding:70px 20px;
+}
 
-    nav a:hover {
-      color: var(--text);
-    }
+.hero-card{
+  width:100%;
+  max-width:1100px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:48px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 25px 70px rgba(0,0,0,.45);
+}
 
-    /* HERO */
-    .hero {
-      padding: 80px 20px 60px;
-      text-align: center;
-    }
+/* HEADER ROW */
+.hero-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.hero-title{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
 
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
-    }
+.hero-title img{
+  width:56px;
+  border-radius:12px;
+}
 
-    /* SECTIONS */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 20px;
-    }
+.hero-title h1{
+  font-size:34px;
+}
 
-    .section h2 {
-      font-size: 30px;
-      margin-bottom: 24px;
-    }
+/* DROPDOWN */
+.dropdown{
+  position:relative;
+}
 
-    /* GLASS CARD */
-    .card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-      backdrop-filter: blur(20px);
-    }
+.dropdown button{
+  background:rgba(255,255,255,0.08);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:10px 18px;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
 
-    /* DONATION LAYOUT */
-    .donation-grid {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 30px;
-      align-items: flex-start;
-    }
+.dropdown-content{
+  display:none;
+  position:absolute;
+  right:0;
+  top:120%;
+  background:#0f1526;
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  min-width:220px;
+  z-index:10;
+}
 
-    .donation-grid img {
-      width: 120px;
-      height: 120px;
-      border-radius: 14px;
-    }
+.dropdown-content div{
+  padding:14px 18px;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    .donation-grid p {
-      color: var(--muted);
-      line-height: 1.6;
-    }
+.dropdown-content div:hover{
+  background:rgba(59,130,246,.18);
+}
 
-    /* BUTTONS */
-    .btn {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: var(--blue);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.dropdown.show .dropdown-content{display:block}
 
-    .btn:hover {
-      opacity: 0.9;
-    }
+/* SUBTEXT */
+.hero-sub{
+  color:var(--muted);
+  max-width:700px;
+  margin-bottom:36px;
+  line-height:1.6;
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: rgba(0,0,0,0.3);
-    }
-  </style>
+/* TIERS */
+.tier-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.tier-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+  transition:.25s;
+}
+
+.tier-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  box-shadow:0 0 25px rgba(59,130,246,.35);
+}
+
+.tier-card h3{font-size:20px;margin-bottom:6px}
+.price{font-size:26px;font-weight:800;margin:10px 0}
+
+.btn{
+  display:inline-block;
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn:hover{
+  background:var(--accent-glow);
+  box-shadow:0 0 18px var(--accent-glow);
+}
+
+/* HIDE SECTIONS */
+.market-section{display:none}
+.market-section.active{display:block}
+
+/* MOBILE */
+@media(max-width:850px){
+  .hero-header{flex-direction:column;align-items:flex-start;gap:18px}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.png" alt="JCRP Logo">
-  <nav>
-    <a href="#donations">Donations</a>
-    <a href="#ads">Paid Ads</a>
-    <a href="#giveaways">Sponsored Giveaways</a>
-  </nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg">
 </header>
 
 <section class="hero">
-  <h1>JCRP Marketplace</h1>
-  <p>Support the community or promote your server</p>
-</section>
+<div class="hero-card">
 
-<!-- DONATIONS -->
-<section id="donations" class="section">
-  <h2>Donations</h2>
+  <!-- HEADER -->
+  <div class="hero-header">
+    <div class="hero-title">
+      <img src="https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,width=120/https://files.stripe.com/links/MDB8YWNjdF8xUlNwY3VGa3daUTN0RHhufGZsX2xpdmVfSWJNYzBicWNXZUwzQjJuUm50ZHgzR3Zt00MEOJcI2b">
+      <h1>Marketplace</h1>
+    </div>
 
-  <div class="card donation-grid">
-    <img
-      src="https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,width=120/https://files.stripe.com/links/MDB8YWNjdF8xUlNwY3VGa3daUTN0RHhufGZsX2xpdmVfSWJNYzBicWNXZUwzQjJuUm50ZHgzR3Zt00MEOJcI2b"
-      alt="Donation">
+    <div class="dropdown" id="dropdown">
+      <button onclick="toggle()">Select Category ▼</button>
+      <div class="dropdown-content">
+        <div onclick="show('donations')">Donations</div>
+        <div onclick="show('ads')">Paid Advertisements</div>
+        <div onclick="show('giveaways')">Sponsored Giveaways</div>
+      </div>
+    </div>
+  </div>
 
-    <div>
-      <p>
-        If you’re a fan of our community, we offer several donation options
-        to show your support. All contributors receive the <b>@Donator</b> role,
-        unlocking GIFs, external stickers, emojis, and media access.
-        <br><br>
-        As a bonus, you may submit a custom emoji to be added to the server!
-      </p>
+  <!-- DONATIONS -->
+  <div id="donations" class="market-section active">
+    <p class="hero-sub">
+      Support JCRP and receive the <b>@Donator</b> role, media perks, and custom emoji submission.
+    </p>
 
-      <!-- STRIPE BUY BUTTON (ONLY ADDITION) -->
+    <div class="tier-grid">
+      <div class="tier-card">
+        <h3>Small Donation</h3>
+        <span class="price">400 RBX</span>
+        <a class="btn" href="https://www.roblox.com/catalog/91915072034860" target="_blank">Buy</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Medium Donation</h3>
+        <span class="price">750 RBX</span>
+        <a class="btn" href="https://www.roblox.com/catalog/81731416816460" target="_blank">Buy</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Huge Donation</h3>
+        <span class="price">5000 RBX</span>
+        <a class="btn" href="https://www.roblox.com/catalog/136767121772862" target="_blank">Buy</a>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
       <stripe-buy-button
         buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
         publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
       </stripe-buy-button>
     </div>
   </div>
-</section>
 
-<!-- PAID ADS -->
-<section id="ads" class="section">
-  <h2>Paid Advertisements</h2>
-
-  <div class="card">
-    <p class="muted">
-      Want to promote your server to the JCRP community?
-      A paid advertisement is a budget-friendly way to gain visibility.
-      Your ad will be posted in <b>💸┃paid-ads</b>.
+  <!-- ADS -->
+  <div id="ads" class="market-section">
+    <p class="hero-sub">
+      Promote your server in <b>💸┃paid-ads</b> with affordable ping options.
     </p>
+
+    <div class="tier-grid">
+      <div class="tier-card">
+        <h3>Paid Ads Ping</h3>
+        <span class="price">250 RBX</span>
+        <a class="btn" href="#">Buy</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Here Ping</h3>
+        <span class="price">550 RBX</span>
+        <a class="btn" href="#">Buy</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Everyone Ping</h3>
+        <span class="price">750 RBX</span>
+        <a class="btn" href="#">Buy</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- SPONSORED GIVEAWAYS -->
-<section id="giveaways" class="section">
-  <h2>Sponsored Giveaways</h2>
-
-  <div class="card">
-    <p class="muted">
-      Sponsored giveaways are the most effective way to promote your community.
-      They include a paid ping and are featured as a giveaway.
-      <br><br>
-      Giveaways are posted in <b>🎁┃giveaways</b>. Sponsors provide prizes.
+  <!-- GIVEAWAYS -->
+  <div id="giveaways" class="market-section">
+    <p class="hero-sub">
+      Sponsored giveaways are featured in <b>🎁┃giveaways</b> and include paid pings.
+      Sponsors provide prizes.
     </p>
+
+    <div class="tier-grid">
+      <div class="tier-card">
+        <h3>Here Ping Giveaway</h3>
+        <span class="price">550 RBX</span>
+        <a class="btn" href="#">Buy</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Everyone Ping Giveaway</h3>
+        <span class="price">950 RBX</span>
+        <a class="btn" href="#">Buy</a>
+      </div>
+    </div>
   </div>
+
+</div>
 </section>
 
-<footer>
-  © 2025 Jackson County Roleplay — Marketplace
-</footer>
+<script>
+function toggle(){
+  document.getElementById('dropdown').classList.toggle('show');
+}
+
+function show(id){
+  document.querySelectorAll('.market-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('dropdown').classList.remove('show');
+}
+</script>
 
 </body>
 </html>
