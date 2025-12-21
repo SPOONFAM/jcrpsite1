@@ -1,373 +1,162 @@
-:root {
-  --bg: #0b0f14;
-  --panel: #121826;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #3b82f6;
-  --accent-glow: #60a5fa;
-  --border: rgba(255,255,255,0.08);
-  --radius: 14px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketplace | Jackson County Roleplay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* { box-sizing: border-box; margin:0; padding:0; }
+  <!-- Stripe -->
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: linear-gradient(180deg, #0b0f14, #0e1422);
-  color: var(--text);
-}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-a { color: inherit; text-decoration: none; }
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="assets/images/logo.png" class="logo">
+      Jackson County Roleplay
+      <span class="badge">Marketplace</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rules.html">Rules</a>
+      <a href="departments.html">Departments</a>
+      <a href="marketplace.html">Marketplace</a>
+    </nav>
+  </div>
+</header>
 
-.container { max-width: 1100px; margin: auto; padding: 24px; }
+<main class="container">
 
-/* HEADER */
-header {
-  position: sticky; top:0; z-index:10;
-  background: rgba(11,15,20,0.8);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-}
+<!-- HERO -->
+<section class="hero fade-in-up">
+  <div class="card hero-card">
 
-.nav { display: flex; justify-content: space-between; align-items: center; }
+    <div class="hero-header">
+      <img src="assets/images/logo.png" class="hero-logo">
+      <h1>Marketplace</h1>
+    </div>
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 800;
-}
-.brand .logo { height: 40px; width: auto; border-radius:6px; }
+    <p class="hero-sub">
+      Support the JCRP community, advertise your server, or promote your giveaway.
+    </p>
 
-.badge {
-  font-size:12px; padding:4px 10px; border-radius:999px;
-  background: rgba(59,130,246,0.15); color:#dbeafe;
-}
+    <!-- TABS -->
+    <div class="marketplace-tabs">
+      <button class="tab active" onclick="showTab('tiers')">Tiers</button>
+      <button class="tab" onclick="showTab('donations')">Donations</button>
+      <button class="tab" onclick="showTab('ads')">Paid Ads</button>
+      <button class="tab" onclick="showTab('giveaways')">Giveaways</button>
+    </div>
 
-nav { display:flex; gap:16px; }
-nav a:hover { opacity:0.8; transition:0.3s; }
+    <!-- TIERS -->
+    <div id="tiers" class="market-section active">
+      <div class="tier-grid">
 
-/* HERO */
-.hero { padding:72px 0; }
-.hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:24px; }
+        <!-- BRONZE -->
+        <div class="tier-card card">
+          <img src="assets/images/bronze.png">
+          <h3>Tier 1 | Bronze</h3>
+          <span class="price">$3.99</span>
+          <a class="btn primary" href="https://buy.stripe.com/cNieVd8XKeDKglbbf0cjS01" target="_blank">Buy</a>
 
-.hero-card .hero-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-.hero-logo { height:60px; width:auto; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+          <a class="btn secondary" href="https://www.roblox.com/catalog/140013985891370" target="_blank">300 Robux</a>
 
-/* CARDS */
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:24px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow:0 12px 28px rgba(0,0,0,0.35);
-}
+          <ul>
+            <li>x1 moderation reset</li>
+            <li>GIF & image permissions</li>
+            <li>Priority mod calls</li>
+          </ul>
 
-h1 { font-size:40px; margin-top:0; }
-h2 { margin-bottom:16px; }
-h3 { margin-top:0; }
-p { color: var(--muted); }
+          <div class="supported">
+            <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/amex.svg">
+            <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/mastercard.svg">
+            <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/flat/visa.svg">
+            <img src="https://js.stripe.com/v3/fingerprinted/img/google_pay-ca6cc2f4ee364c7966f8fabf064849fe.svg">
+            <img src="https://js.stripe.com/v3/fingerprinted/img/link-69133f6f8d9cceaf6643b54c15305d43.svg">
+          </div>
+        </div>
 
-/* BUTTONS */
-.cta { margin-top:20px; display:flex; gap:12px; }
-.btn {
-  padding:12px 16px; border-radius:10px; font-weight:600;
-  display:inline-block; transition: all 0.3s ease;
-}
-.btn.primary {
-  background: var(--accent); color:#fff;
-}
-.btn.primary:hover { background: var(--accent-glow); box-shadow:0 0 20px var(--accent-glow); }
-.btn.secondary {
-  background: rgba(255,255,255,0.08); color: var(--text);
-}
-.btn.secondary:hover { background: rgba(255,255,255,0.15); }
-.pulse { animation: pulse 2s infinite; }
-@keyframes pulse {
-  0%,100%{ box-shadow:0 0 8px var(--accent-glow); }
-  50%{ box-shadow:0 0 20px var(--accent-glow); }
-}
+        <!-- SILVER -->
+        <div class="tier-card card">
+          <img src="assets/images/Silver.png">
+          <h3>Tier 2 | Silver</h3>
+          <span class="price">$8.99</span>
+          <a class="btn primary" href="https://buy.stripe.com/28EbJ12zm0MU5Gx5UGcjS02" target="_blank">Buy</a>
+          <a class="btn secondary" href="https://www.roblox.com/catalog/83048806537101" target="_blank">650 Robux</a>
+        </div>
 
-/* STATS */
-.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-.stat {
-  background: rgba(255,255,255,0.06); padding:16px; border-radius:12px; text-align:center;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.stat:hover { transform: translateY(-4px); background: rgba(255,255,255,0.08); }
-.stat strong { display:block; font-size:20px; }
+        <!-- GOLD -->
+        <div class="tier-card card">
+          <img src="assets/images/Gold.png">
+          <h3>Tier 3 | Gold</h3>
+          <span class="price">$12.99</span>
+          <a class="btn primary" href="https://buy.stripe.com/aFa7sLc9W9jqed3erccjS03" target="_blank">Buy</a>
+          <a class="btn secondary" href="https://www.roblox.com/catalog/111934994233463" target="_blank">1000 Robux</a>
+        </div>
 
-/* GRID SECTIONS */
-.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px; }
+        <!-- PLATINUM -->
+        <div class="tier-card card">
+          <img src="assets/images/Plat.png">
+          <h3>Tier 4 | Platinum</h3>
+          <span class="price">$24.99</span>
+          <a class="btn primary" href="https://buy.stripe.com/6oU9AT6PC7bib0Rdn8cjS04" target="_blank">Buy</a>
+          <a class="btn secondary" href="https://www.roblox.com/catalog/98614479625198" target="_blank">2000 Robux</a>
+        </div>
 
-/* SECTIONS FADE-IN */
-.fade-in-up { opacity:0; transform:translateY(20px); animation: fadeInUp 1s forwards; animation-delay:0.2s; }
-@keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+      </div>
+    </div>
 
-/* FOOTER */
-footer { border-top:1px solid var(--border); padding:24px; text-align:center; color:var(--muted); }
+    <!-- DONATIONS -->
+    <div id="donations" class="market-section">
+      <div class="card donation-layout">
+        <img src="https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,width=120/https://files.stripe.com/links/MDB8YWNjdF8xUlNwY3VGa3daUTN0RHhufGZsX2xpdmVfSWJNYzBicWNXZUwzQjJuUm50ZHgzR3Zt00MEOJcI2b">
+        <div>
+          <p>
+            All donors receive the <b>@Donator</b> role, media permissions,
+            and may submit a custom emoji.
+          </p>
+          <a class="btn primary" href="https://www.roblox.com/catalog/91915072034860">Small (400 RBX)</a><br><br>
+          <a class="btn primary" href="https://www.roblox.com/catalog/81731416816460">Medium (750 RBX)</a><br><br>
+          <a class="btn primary" href="https://www.roblox.com/catalog/136767121772862">Huge (5000 RBX)</a>
+        </div>
+      </div>
+    </div>
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-grid{ grid-template-columns:1fr; }
-  .grid, .stats { grid-template-columns:1fr; }
-  h1{ font-size:32px; }
-  .hero-card .hero-header { flex-direction: column; gap:8px; text-align:center; }
-}
-/* Left-align hero header for rules page */
-.rules-hero .hero-header {
-  justify-content: flex-start; /* align items left */
-  text-align: left;
-  flex-direction: row; /* keep logo and text side by side */
-  gap: 16px;
-}
+    <!-- ADS -->
+    <div id="ads" class="market-section">
+      <p class="hero-sub">Promote your server in 💸┃paid-ads.</p>
+      <stripe-pricing-table
+        pricing-table-id="prctbl_1RUhpAFkwZQ3tDxnz58SwChw"
+        publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
+      </stripe-pricing-table>
+    </div>
 
-/* For mobile */
-@media (max-width: 900px) {
-  .rules-hero .hero-header {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-/* Center hero card with padding */
-.hero-card-centered {
-  max-width: 800px;      /* keeps content from touching the edges */
-  margin: 0 auto;        /* center horizontally */
-  padding: 32px;         /* extra padding inside the card */
-}
-@media (max-width: 900px) {
-  .hero-card-centered {
-    padding: 24px;       /* reduce padding on smaller screens */
-  }
-}
-.hero-center {
-  display: flex;
-  justify-content: center; /* centers horizontally */
-  align-items: center;     /* optional vertical centering if needed */
-  width: 100%;
-}
-.hero-card-matched {
-  width: 100%;
-  max-width: 800px;   /* match collapsible rules cards width */
-  margin: 0 auto;     /* center horizontally */
-  padding: 32px;
-}
-@media (max-width: 900px) {
-  .hero-card-matched {
-    padding: 24px;    /* reduce padding on smaller screens */
-  }
-}
-/* DEPARTMENTS GRID */
-.department-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
+    <!-- GIVEAWAYS -->
+    <div id="giveaways" class="market-section">
+      <p class="hero-sub">Sponsor a giveaway in 🎁┃giveaways.</p>
+      <stripe-pricing-table
+        pricing-table-id="prctbl_1RZHuDFkwZQ3tDxntz0N3Dry"
+        publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
+      </stripe-pricing-table>
+    </div>
 
-/* DEPARTMENT CARD */
-.department-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  </div>
+</section>
 
-.department-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-}
+</main>
 
-/* HERO HEADER WITH LOGO */
-.department-card .hero-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+<script>
+function showTab(id) {
+  document.querySelectorAll('.market-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
 }
-.department-card .hero-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+</script>
 
-/* TEXT */
-.department-card h2 {
-  font-size: 28px;
-  margin: 0;
-}
-
-.department-card p.description {
-  color: var(--muted);
-  margin: 12px 0 16px 0;
-  line-height: 1.5;
-}
-
-.department-card .info {
-  font-size: 14px;
-  color: #d1d5db;
-  line-height: 1.6;
-}
-
-.department-card .info span {
-  font-weight: 600;
-  color: var(--text);
-}
-
-/* FADE-IN ANIMATION */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* FLOATING HOVER EFFECT (optional) */
-@keyframes floatLeftRight {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(6px); }
-}
-.department-card.float {
-  animation: floatLeftRight 6s ease-in-out infinite alternate;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .department-grid {
-    grid-template-columns: 1fr;
-  }
-  .department-card .hero-header {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-/* Dropdown Button */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top: 16px;
-}
-
-.dropdown-btn {
-  width: 200px;
-  text-align: left;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dropdown-btn::after {
-  content: "▼";
-  font-size: 12px;
-  margin-left: 8px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--panel);
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  border-radius: var(--radius);
-  overflow: hidden;
-  z-index: 100;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 12px 16px;
-  color: var(--text);
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.dropdown-content a:hover {
-  background-color: rgba(59,130,246,0.15);
-}
-
-/* Show dropdown on button click */
-.dropdown.show .dropdown-content {
-  display: block;
-}
-.marketplace-tabs {
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  margin:30px auto;
-}
-
-.tab {
-  padding:12px 18px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid var(--border);
-  color:white;
-  cursor:pointer;
-  font-weight:600;
-}
-
-.tab.active {
-  background:var(--accent);
-  box-shadow:0 0 18px var(--accent-glow);
-}
-
-.market-section { display:none; }
-.market-section.active { display:block; }
-
-.tier-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.tier-card {
-  background:rgba(255,255,255,0.06);
-  border-radius:16px;
-  padding:24px;
-  text-align:center;
-  border:1px solid var(--border);
-}
-
-.tier-card img { height:80px; margin-bottom:10px; }
-
-.price { font-size:22px; font-weight:800; display:block; margin:8px 0; }
-
-.tier-card ul {
-  text-align:left;
-  margin-top:10px;
-  color:var(--muted);
-}
-
-.supported img {
-  height:26px;
-  margin:6px 4px 0;
-}
-
-.donation-layout {
-  display:grid;
-  grid-template-columns:1fr 2fr;
-  gap:24px;
-  align-items:center;
-}
-
-@media(max-width:900px){
-  .donation-layout { grid-template-columns:1fr; }
-}
-
+</body>
+</html>
