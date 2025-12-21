@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson County Roleplay - Departments</title>
+  <title>Jackson County Roleplay - Marketplace</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Stripe Buy Button -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
   <!-- HEADER -->
@@ -25,96 +27,123 @@
     </div>
   </header>
 
-<!-- HERO -->
-   <section class="hero fade-in-up rules-hero">
+  <!-- HERO -->
+  <section class="hero fade-in-up rules-hero">
     <div class="hero-center">
-        <div class="card hero-card hero-card-matched">
+      <div class="card hero-card hero-card-matched">
         <div class="hero-header">
-            <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="hero-logo">
-            <h1>Departments</h1>
+          <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
+          <h1>Marketplace</h1>
         </div>
-        <p>Below are the official departments of Jackson County Roleplay.
-          Each department has its own leadership, requirements, and roleplay focus.
-        </p>
-        </div>
-    </div>
-   </section>
 
-  <!-- DEPARTMENT CARDS -->
+        <p>Support JCRP or feature your server! Use the dropdown below to select a category.</p>
+
+        <!-- DROPDOWN -->
+        <div class="dropdown" id="market-dropdown">
+          <button onclick="toggleDropdown()">Select Category ▼</button>
+          <div class="dropdown-content">
+            <div onclick="showSection('donations')">Donations</div>
+            <div onclick="showSection('ads')">Paid Advertisements</div>
+            <div onclick="showSection('giveaways')">Sponsored Giveaways</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETPLACE SECTIONS -->
   <section class="container">
     <div class="department-grid">
-
-      <!-- Lee's Summit Fire Department -->
-      <div class="department-card fade-in-up">
+      
+      <!-- DONATIONS -->
+      <div id="donations" class="department-card fade-in-up market-section active">
         <div class="hero-header">
-          <img class="hero-logo" src="assets/images/fire-dept.png" alt="Lee's Summit Fire Department">
-          <h2>Lee's Summit Fire Department</h2>
+          <img src="assets/images/logo.png" alt="Donations" class="hero-logo">
+          <h2>Donations</h2>
         </div>
         <p class="description">
-          The Lee's Summit Fire Department is dedicated to protecting the residents of Lee's Summit. Members respond to fires, assist the injured, and ensure community safety every day.
+          Support JCRP and receive the <b>@Donator</b> role, media perks, and custom emoji submission.
         </p>
-        <div class="info">
-          <p><span>Department Head:</span> @IA | Reallefty123101</p>
-          <p><span>Server Link:</span> Lee's Summit Fire Department</p>
-          <p><span>Weekly Quota:</span> 0 Hours</p>
-          <p><span>Application Status:</span> Open</p>
-          <p><span>Whitelisted Department:</span> :ssd:</p>
+
+        <div class="tier-grid">
+          <div class="tier-card">
+            <h3>Small Donation</h3>
+            <span class="price">400 RBX</span>
+            <a class="btn" href="https://www.roblox.com/catalog/91915072034860" target="_blank">Buy</a>
+          </div>
+
+          <div class="tier-card">
+            <h3>Medium Donation</h3>
+            <span class="price">750 RBX</span>
+            <a class="btn" href="https://www.roblox.com/catalog/81731416816460" target="_blank">Buy</a>
+          </div>
+
+          <div class="tier-card">
+            <h3>Huge Donation</h3>
+            <span class="price">5000 RBX</span>
+            <a class="btn" href="https://www.roblox.com/catalog/136767121772862" target="_blank">Buy</a>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <stripe-buy-button
+            buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
+            publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
+          </stripe-buy-button>
         </div>
       </div>
 
-      <!-- Civilian Operations -->
-      <div class="department-card fade-in-up">
+      <!-- PAID ADS -->
+      <div id="ads" class="department-card fade-in-up market-section">
         <div class="hero-header">
-          <img class="hero-logo" src="assets/images/civilian-ops.png" alt="Civilian Operations">
-          <h2>Civilian Operations</h2>
+          <img src="assets/images/logo.png" alt="Paid Ads" class="hero-logo">
+          <h2>Paid Advertisements</h2>
         </div>
         <p class="description">
-          Civilian Operations is JCRP's business backbone. Joining allows you to create a business, join a mafia, or work for one. Build your dominance or thrive in commerce!
+          Promote your server in <b>💸┃paid-ads</b> with affordable ping options.
         </p>
-        <div class="info">
-          <p><span>Department Head:</span> @MGMT | FBI-03 | Leobro629</p>
-          <p><span>Server Link:</span> Civilian Operations</p>
-          <p><span>Weekly Quota:</span> 0 Hours</p>
-          <p><span>Application Status:</span> Open</p>
-          <p><span>Whitelisted Department:</span> :ssustart:</p>
+
+        <div class="tier-grid">
+          <div class="tier-card">
+            <h3>Paid Ads Ping</h3>
+            <span class="price">250 RBX</span>
+            <a class="btn" href="#">Buy</a>
+          </div>
+          <div class="tier-card">
+            <h3>Here Ping</h3>
+            <span class="price">550 RBX</span>
+            <a class="btn" href="#">Buy</a>
+          </div>
+          <div class="tier-card">
+            <h3>Everyone Ping</h3>
+            <span class="price">750 RBX</span>
+            <a class="btn" href="#">Buy</a>
+          </div>
         </div>
       </div>
 
-      <!-- Jackson County Sheriff's Office -->
-      <div class="department-card fade-in-up">
+      <!-- SPONSORED GIVEAWAYS -->
+      <div id="giveaways" class="department-card fade-in-up market-section">
         <div class="hero-header">
-          <img class="hero-logo" src="assets/images/jcso.png" alt="Jackson County Sheriff's Office">
-          <h2>Jackson County Sheriff's Office</h2>
+          <img src="assets/images/logo.png" alt="Giveaways" class="hero-logo">
+          <h2>Sponsored Giveaways</h2>
         </div>
         <p class="description">
-          The JCSO protects lives, property, and rights of all people within Jackson County. Maintain order, enforce the law, and keep the community safe.
+          Sponsored giveaways are featured in <b>🎁┃giveaways</b> and include paid pings.
+          Sponsors provide prizes.
         </p>
-        <div class="info">
-          <p><span>Department Head:</span> @EC | armyt1d</p>
-          <p><span>Server Link:</span> Jackson County Sheriff's Office</p>
-          <p><span>Weekly Quota:</span> 1 Hour</p>
-          <p><span>Application Status:</span> Open</p>
-          <p><span>Whitelisted Department:</span> :ssustart:</p>
-          <p><strong>Elite Department</strong></p>
-        </div>
-      </div>
 
-      <!-- Missouri State Highway Patrol -->
-      <div class="department-card fade-in-up">
-        <div class="hero-header">
-          <img class="hero-logo" src="assets/images/mshp.png" alt="Missouri State Highway Patrol">
-          <h2>Missouri State Highway Patrol</h2>
-        </div>
-        <p class="description">
-          The Missouri State Highway Patrol protects lives and property, maintains order, and enforces the law throughout Missouri.
-        </p>
-        <div class="info">
-          <p><span>Department Head:</span> @DD | 250-HP | TrooperIsaiah_250</p>
-          <p><span>Server Link:</span> Missouri State Highway Patrol</p>
-          <p><span>Weekly Quota:</span> 1 Hour</p>
-          <p><span>Application Status:</span> Open</p>
-          <p><span>Whitelisted Department:</span> :ssustart:</p>
-          <p><strong>Elite Department</strong></p>
+        <div class="tier-grid">
+          <div class="tier-card">
+            <h3>Here Ping Giveaway</h3>
+            <span class="price">550 RBX</span>
+            <a class="btn" href="#">Buy</a>
+          </div>
+          <div class="tier-card">
+            <h3>Everyone Ping Giveaway</h3>
+            <span class="price">950 RBX</span>
+            <a class="btn" href="#">Buy</a>
+          </div>
         </div>
       </div>
 
@@ -128,9 +157,16 @@
     </div>
   </footer>
 
+<script>
+function toggleDropdown(){
+  document.getElementById('market-dropdown').classList.toggle('show');
+}
+
+function showSection(id){
+  document.querySelectorAll('.market-section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('market-dropdown').classList.remove('show');
+}
+</script>
 </body>
 </html>
-
-
-
-
