@@ -10,49 +10,62 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="assets/images/logo.png" class="logo">
-      <span>Jackson County Roleplay</span>
+      <img src="assets/images/logo.png">
+      Jackson County Roleplay
+      <span class="badge">Marketplace</span>
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="rules.html">Rules</a>
       <a href="departments.html">Departments</a>
       <a href="staff.html">Staff</a>
-      <a class="active" href="marketplace.html">Marketplace</a>
+      <a href="marketplace.html">Marketplace</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero fade-in-up">
   <div class="hero-center">
-    <div class="hero-card">
+    <div class="card hero-card-matched">
       <div class="hero-header">
         <img src="assets/images/logo.png" class="hero-logo">
         <h1>Marketplace</h1>
       </div>
-      <p>Support the server or promote your community.</p>
-
-      <div class="dropdown">
-        <button class="dropdown-btn" onclick="toggle()">Sections</button>
-        <div class="dropdown-content" id="drop">
-          <a href="#tiers">Tiers</a>
-          <a href="#donations">Donations</a>
-        </div>
-      </div>
+      <p>Support the server by purchasing tiers or donating directly.</p>
     </div>
   </div>
 </section>
 
-<section class="container" id="donations">
-  <h2 class="section-title">Donations</h2>
-  <div class="card donation-card">
+<main class="container fade-in-up">
 
-    <img src="assets/images/logo.png">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('tiers')">Tiers</button>
+    <button class="tab-btn" onclick="showTab('donations')">Donations</button>
+  </div>
 
-    <div>
-      <p>Receive the <strong>@Donator</strong> role and exclusive perks.</p>
+  <!-- TIERS -->
+  <div id="tiers" class="grid">
+    <div class="card">
+      <h3>Tier 1</h3>
+      <p>Basic supporter perks & priority scenes.</p>
+    </div>
+    <div class="card">
+      <h3>Tier 2</h3>
+      <p>Advanced perks, vehicle access, faster moderation.</p>
+    </div>
+    <div class="card">
+      <h3>Tier 3</h3>
+      <p>Maximum priority, exclusive vehicles & features.</p>
+    </div>
+  </div>
+
+  <!-- DONATIONS -->
+  <div id="donations" style="display:none;">
+    <div class="card">
+      <h2>Donate to JCRP</h2>
 
       <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
       <stripe-buy-button
         buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
         publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
@@ -60,13 +73,20 @@
 
     </div>
   </div>
-</section>
 
-<footer>© 2025 Jackson County Roleplay</footer>
+</main>
+
+<footer>
+  <div class="container">© 2025 Jackson County Roleplay</div>
+</footer>
 
 <script>
-function toggle(){
-  document.getElementById("drop").classList.toggle("show");
+function showTab(tab) {
+  document.getElementById('tiers').style.display = tab === 'tiers' ? 'grid' : 'none';
+  document.getElementById('donations').style.display = tab === 'donations' ? 'block' : 'none';
+
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 
