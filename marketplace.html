@@ -27,52 +27,35 @@
 <section class="hero fade-in-up">
   <div class="hero-center">
     <div class="card hero-card-matched">
-      <div class="hero-header">
-        <img src="assets/images/logo.png" class="hero-logo">
-        <h1>Marketplace</h1>
-      </div>
-      <p>Support the server by purchasing tiers or donating directly.</p>
+      <h1>Marketplace</h1>
+      <p>Support Jackson County Roleplay.</p>
     </div>
   </div>
 </section>
 
 <main class="container fade-in-up">
 
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('tiers')">Tiers</button>
-    <button class="tab-btn" onclick="showTab('donations')">Donations</button>
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('tiers', this)">Tiers</button>
+  <button class="tab-btn" onclick="switchTab('donations', this)">Donations</button>
+</div>
+
+<div id="tiers" class="grid">
+  <div class="card"><h3>Tier 1</h3><p>Basic perks & priority.</p></div>
+  <div class="card"><h3>Tier 2</h3><p>Advanced perks & vehicles.</p></div>
+  <div class="card"><h3>Tier 3</h3><p>Maximum priority access.</p></div>
+</div>
+
+<div id="donations" style="display:none;">
+  <div class="card">
+    <h2>Donate</h2>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    <stripe-buy-button
+      buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
+      publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
+    </stripe-buy-button>
   </div>
-
-  <!-- TIERS -->
-  <div id="tiers" class="grid">
-    <div class="card">
-      <h3>Tier 1</h3>
-      <p>Basic supporter perks & priority scenes.</p>
-    </div>
-    <div class="card">
-      <h3>Tier 2</h3>
-      <p>Advanced perks, vehicle access, faster moderation.</p>
-    </div>
-    <div class="card">
-      <h3>Tier 3</h3>
-      <p>Maximum priority, exclusive vehicles & features.</p>
-    </div>
-  </div>
-
-  <!-- DONATIONS -->
-  <div id="donations" style="display:none;">
-    <div class="card">
-      <h2>Donate to JCRP</h2>
-
-      <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
-        publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-      </stripe-buy-button>
-
-    </div>
-  </div>
+</div>
 
 </main>
 
@@ -81,12 +64,11 @@
 </footer>
 
 <script>
-function showTab(tab) {
-  document.getElementById('tiers').style.display = tab === 'tiers' ? 'grid' : 'none';
-  document.getElementById('donations').style.display = tab === 'donations' ? 'block' : 'none';
-
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+function switchTab(tab, btn){
+  document.getElementById("tiers").style.display = tab === "tiers" ? "grid" : "none";
+  document.getElementById("donations").style.display = tab === "donations" ? "block" : "none";
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
 }
 </script>
 
