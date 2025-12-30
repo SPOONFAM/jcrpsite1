@@ -1,162 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson County Roleplay - Staff</title>
+  <title>Staff | JCRP</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Staff horizontal scroll container */
-    .staff-scroll {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      margin-top: 32px;
-      padding: 16px 0;
-    }
-
-    .staff-track {
-      display: flex;
-      gap: 24px;
-      animation: scroll-back-forth 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes scroll-back-forth {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-20%); }
-      100% { transform: translateX(0); }
-    }
-
-    .staff-card {
-      min-width: 250px;
-      max-width: 250px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 16px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .staff-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-    }
-    .staff-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 12px;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-    }
-    .apply-btn {
-      margin-top: 24px;
-      display: inline-block;
-      padding: 12px 20px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .apply-btn:hover {
-      background: var(--accent-glow);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    @media(max-width:900px){
-      .staff-track { flex-direction: column; animation: none; }
-      .staff-card { max-width: 100%; min-width: auto; margin-bottom: 16px; }
-    }
-  </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
-        Jackson County Roleplay
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="rules.html">Rules</a>
-        <a href="departments.html">Departments</a>
-        <a href="staff.html">Staff</a>
-        <a href="contact.html">Contact</a>
-        <a href="marketplace.html">Marketplace</a>
-      </nav>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="assets/images/logo.png">
+      Jackson County Roleplay
     </div>
-  </header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rules.html">Rules</a>
+      <a href="departments.html">Departments</a>
+      <a href="staff.html">Staff</a>
+      <a href="marketplace.html">Marketplace</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero fade-in-up">
-    <div class="hero-center">
-      <div class="card hero-card-matched">
-        <div class="hero-header">
-          <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
-          <h1>Our Staff Team</h1>
-        </div>
-        <p>Meet the dedicated staff members of Jackson County Roleplay who help keep the server organized, safe, and fun for everyone.</p>
-        <a href="https://melonly.xyz/forms/7325563178731966464" class="apply-btn">Apply to Join Staff</a>
-      </div>
+<section class="hero fade-in-up">
+  <div class="hero-center">
+    <div class="card hero-card-matched">
+      <h1>Staff Team</h1>
+      <p>Our experienced leadership & moderation team.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- STAFF SCROLL -->
-  <section class="staff-scroll fade-in-up">
-    <div class="container">
-      <div class="staff-track">
+<main class="container fade-in-up">
+  <div class="grid">
+    <div class="card"><h3>Owner</h3><p>@OwnerName</p></div>
+    <div class="card"><h3>Admin</h3><p>@AdminName</p></div>
+    <div class="card"><h3>Moderator</h3><p>@ModName</p></div>
+  </div>
+</main>
 
-        <!-- Example Staff Card -->
-        <div class="staff-card">
-          <img src="assets/images/staff1.jpg" alt="Staff 1" class="staff-avatar">
-          <h3>Reallefty123101</h3>
-          <p>Head of Lee's Summit Fire Department - Internal Affairs</p>
-        </div>
+<footer>
+  <div class="container">© 2025 Jackson County Roleplay</div>
+</footer>
 
-        <div class="staff-card">
-          <img src="assets/images/staff2.jpg" alt="Staff 2" class="staff-avatar">
-          <h3>Leobro629</h3>
-          <p>Civilian Operations Manager</p>
-        </div>
-
-        <div class="staff-card">
-          <img src="assets/images/staff3.jpg" alt="Staff 3" class="staff-avatar">
-          <h3>Captain Tony</h3>
-          <p>Jackson County Roleplay Assistant Director</p>
-        </div>
-
-        <div class="staff-card">
-          <img src="assets/images/staff4.jpg" alt="Staff 4" class="staff-avatar">
-          <h3>Youmo</h3>
-          <p>JCRP Owner</p>
-        </div>
-
-        <div class="staff-card">
-          <img src="assets/images/staff5.jpg" alt="Staff 4" class="staff-avatar">
-          <h3>TrooperIsaiah_250</h3>
-          <p>Missouri State Highway Patrol - Deputy Director</p>
-        </div>
-
-        <div class="staff-card">
-          <img src="assets/images/staff6.jpg" alt="Staff 4" class="staff-avatar">
-          <h3>𝓙𝓮𝓯𝓯𝓲𝓼𝓷𝓪𝓶𝓮𝓱𝓲</h3>
-          <p>Jackson County Roleplay Assistant Director</p>
-        </div>
-        
-        <!-- You can add more staff cards here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer container">
-      &copy; 2025 Jackson County Roleplay
-    </div>
-  </footer>
 </body>
 </html>
