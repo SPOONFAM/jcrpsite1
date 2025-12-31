@@ -151,8 +151,98 @@ footer {
   h1{ font-size:36px; }
   .hero-card, .hero-card-matched { padding:28px; }
 }
+/* =========================
+   NAV DROPDOWN (MARKETPLACE)
+   ========================= */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-toggle:hover {
+  color: #00bfa5;
+}
+
+.caret {
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown:hover .caret {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 115%;
+  left: 0;
+  min-width: 220px;
+  background: rgba(18, 18, 22, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 10px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(0, 191, 165, 0.12);
+  color: #00bfa5;
+}
+
+/* Mobile safety */
+@media (max-width: 900px) {
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+    background: transparent;
+  }
+}
+
 
 @media(max-width:600px){
   .container { padding:24px; }
   .cta { flex-direction:column; gap:16px; }
 }
+
