@@ -1,208 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson County Roleplay - Marketplace</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-</head>
-<body>
+/* =========================
+   NAV DROPDOWN (MARKETPLACE)
+   ========================= */
 
-<!-- HEADER -->
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
-      Jackson County Roleplay
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="rules.html">Rules</a>
-      <a href="departments.html">Departments</a>
-      <a href="marketplace.html" class="active">Marketplace</a>
-      <a href="#donations">Donations</a>
-      <a href="#paid-ads">Paid Ads</a>
-      <a href="#sponsored-giveaways">Sponsored Giveaways</a>
-    </nav>
-  </div>
-</header>
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-<!-- HERO -->
-<section class="hero fade-in-up">
-  <div class="hero-center container">
-    <div class="card hero-card-matched">
-      <div class="hero-header">
-        <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
-        <h1>Marketplace</h1>
-      </div>
-      <p>Purchase tiers, make donations, advertise, or sponsor giveaways to support Jackson County Roleplay! We support Stripe and Roblox payments.</p>
-    </div>
-  </div>
-</section>
+.dropdown-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-<!-- TIER CARDS -->
-<main class="container fade-in-up" style="margin-top:32px;">
-  <div class="grid">
+.dropdown-toggle:hover {
+  color: #00bfa5;
+}
 
-    <!-- Tier 4 Platinum -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/plat.png" alt="Platinum Tier" class="hero-logo">
-        <h3>Tier 4 | Platinum</h3>
-      </div>
-      <p>Platinum Tier is ranked 1st in our tier system! Unlocks ultimate perks, economy boosts, and exclusive Discord access.</p>
-      <ul>
-        <li>$20,000 every hour in economy</li>
-        <li>x1 Custom Role</li>
-        <li>x1 Custom Office</li>
-        <li>x3 Able to reset all moderations*</li>
-        <li>Permanent Discord Booster perks</li>
-        <li>Office key of your choice</li>
-        <li>Priority for all applications</li>
-        <li>Image & GIF perms in all channels</li>
-        <li>Access to 📸┃official-media & 📌┃priority-mod-calls</li>
-      </ul>
-      <div class="cta" style="flex-direction:column; gap:12px;">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RXIJxFkwZQ3tDxnCk9pSOu7"
-          publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-        </stripe-buy-button>
-        <a href="https://www.roblox.com/catalog/98614479625198/Jackson-County-Roleplay-Tier-4" target="_blank" class="btn secondary">2000 Robux</a>
-      </div>
-      <p class="muted" style="margin-top:8px;">*Moderation reset may be denied if abuse is suspected.</p>
-    </div>
+.caret {
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
 
-    <!-- Gold Tier -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/gold.png" alt="Gold Tier" class="hero-logo">
-        <h3>Tier 3 | Gold</h3>
-      </div>
-      <p>Gold Tier is ranked 2nd in our tier system! Provides high-level perks to enhance economy, customization, and roleplay.</p>
-      <ul>
-        <li>$10,000 every hour in economy</li>
-        <li>x1 Custom Role</li>
-        <li>x1 Custom Office</li>
-        <li>x3 Able to reset all moderations*</li>
-        <li>Image & GIF perms in all channels</li>
-        <li>Access to 📌┃priority-mod-calls</li>
-      </ul>
-      <div class="cta" style="flex-direction:column; gap:12px;">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RXIFLFkwZQ3tDxn0IKzs6GZ"
-          publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-        </stripe-buy-button>
-        <a href="https://www.roblox.com/catalog/111934994233463/Jackson-County-Roleplay-Gold-Tier" target="_blank" class="btn secondary">1000 Robux</a>
-      </div>
-      <p class="muted" style="margin-top:8px;">*Moderation reset may be denied if abuse is suspected.</p>
-    </div>
+.nav-dropdown:hover .caret {
+  transform: rotate(180deg);
+}
 
-    <!-- Silver Tier -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/silver.png" alt="Silver Tier" class="hero-logo">
-        <h3>Tier 2 | Silver</h3>
-      </div>
-      <p>Silver Tier is ranked 3rd in our tier system! Contains enhanced perks to boost roleplay and community experience.</p>
-      <ul>
-        <li>$5,000 every hour in economy</li>
-        <li>x1 Custom Office</li>
-        <li>x2 Able to reset all moderations*</li>
-        <li>Image & GIF perms in all channels</li>
-        <li>Access to 📌┃priority-mod-calls</li>
-      </ul>
-      <div class="cta" style="flex-direction:column; gap:12px;">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RXI0wFkwZQ3tDxngWZo1k1c"
-          publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-        </stripe-buy-button>
-        <a href="https://www.roblox.com/catalog/83048806537101/Jackson-County-Roleplay-Silver-Tier" target="_blank" class="btn secondary">650 Robux</a>
-      </div>
-      <p class="muted" style="margin-top:8px;">*Moderation reset may be denied if abuse is suspected.</p>
-    </div>
+.dropdown-menu {
+  position: absolute;
+  top: 115%;
+  left: 0;
+  min-width: 220px;
+  background: rgba(18, 18, 22, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 10px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
 
-    <!-- Bronze Tier -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/bronze.png" alt="Bronze Tier" class="hero-logo">
-        <h3>Tier 1 | Bronze</h3>
-      </div>
-      <p>Bronze Tier is ranked at the beginning of our tier system! Contains basic perks to enhance roleplay and community experience.</p>
-      <ul>
-        <li>x1 Able to reset all moderations*</li>
-        <li>Image & GIF perms in all channels</li>
-        <li>Access to 📌┃priority-mod-calls</li>
-      </ul>
-      <div class="cta" style="flex-direction:column; gap:12px;">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RWtFiFkwZQ3tDxn1RZSzV7f"
-          publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-        </stripe-buy-button>
-        <a href="https://www.roblox.com/catalog/140013985891370/Jackson-County-Roleplay-Bronze-Tier" target="_blank" class="btn secondary">300 Robux</a>
-      </div>
-      <p class="muted" style="margin-top:8px;">*Moderation reset may be denied if abuse is suspected.</p>
-    </div>
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
-  </div>
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 
-  <!-- Donations Section -->
-  <section id="donations" class="fade-in-up" style="margin-top:64px;">
-    <h2>Donations</h2>
-    <p>If you’re a fan of our community, we offer several donation options to show your support. All contributors receive the <span style="color:#00bfa5;">@Donator</span> role, which unlocks access to GIFs, external stickers, emojis, and media in 💬┃general.<br>As a bonus, you’ll also be able to submit a custom emoji to be added to the server!</p>
-    <div class="cta" style="flex-direction:column; gap:12px;">
-      <stripe-buy-button
-        buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
-        publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-      </stripe-buy-button>
-      <a href="https://www.roblox.com/catalog/91915072034860" target="_blank" class="btn secondary">Small Donation - 400 RBX</a>
-      <a href="https://www.roblox.com/catalog/81731416816460" target="_blank" class="btn secondary">Medium Donation - 750 RBX</a>
-      <a href="https://www.roblox.com/catalog/136767121772862" target="_blank" class="btn secondary">Huge Donation - 5000 RBX</a>
-    </div>
-  </section>
+.dropdown-menu a:hover {
+  background: rgba(0, 191, 165, 0.12);
+  color: #00bfa5;
+}
 
-  <!-- Paid Advertisements Section -->
-  <section id="paid-ads" class="fade-in-up" style="margin-top:64px;">
-    <h2>Paid Advertisements</h2>
-    <stripe-pricing-table
-      pricing-table-id="prctbl_1RUhpAFkwZQ3tDxnz58SwChw"
-      publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-    </stripe-pricing-table>
-    <div class="cta" style="flex-direction:column; gap:12px; margin-top:12px;">
-      <a href="https://roblox.com/developer-product/7652828402/product/3280665377" target="_blank" class="btn secondary">Paid Ads Ping - 250 RBX</a>
-      <a href="https://roblox.com/developer-product/7652828402/product/3280667707" target="_blank" class="btn secondary">Here Ping - 550 RBX</a>
-      <a href="https://roblox.com/developer-product/7652828402/product/3280666730" target="_blank" class="btn secondary">Everyone Ping - 750 RBX</a>
-    </div>
-  </section>
+/* Mobile safety */
+@media (max-width: 900px) {
+  .nav-dropdown {
+    width: 100%;
+  }
 
-  <!-- Sponsored Giveaways Section -->
-  <section id="sponsored-giveaways" class="fade-in-up" style="margin-top:64px;">
-    <h2>Sponsored Giveaways</h2>
-    <p>Looking for the most effective way to promote your community? A sponsored giveaway is one of the best methods. It includes a paid ping of your choice and will be featured as a giveaway, giving members an incentive to check out your server. All sponsors are responsible for providing their own prizes. The giveaway will be posted in 🎁┃giveaways.</p>
-    <stripe-pricing-table
-      pricing-table-id="prctbl_1RZHuDFkwZQ3tDxntz0N3Dry"
-      publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-    </stripe-pricing-table>
-    <div class="cta" style="flex-direction:column; gap:12px; margin-top:12px;">
-      <a href="https://roblox.com/developer-product/7652828402/product/3280663744" target="_blank" class="btn secondary">Everyone Ping - 950 RBX</a>
-      <a href="https://roblox.com/developer-product/7652828402/product/3280667707" target="_blank" class="btn secondary">Here Ping - 550 RBX</a>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container footer">&copy; <span id="year"></span> Jackson County Roleplay</div>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+    background: transparent;
+  }
+}
