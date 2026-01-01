@@ -2,125 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson County Roleplay - Departments</title>
+  <title>Departments | JCRP</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
-      Jackson County Roleplay
+      <img src="assets/logo.png" class="logo">
+      <span class="badge">JCRP</span>
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="rules.html">Rules</a>
       <a href="departments.html" class="active">Departments</a>
+      <a href="rules.html">Rules</a>
       <a href="marketplace.html">Marketplace</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in-up">
-  <div class="hero-center container">
-    <div class="card hero-card-matched">
-      <div class="hero-header">
-        <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
-        <h1>Departments</h1>
+<section class="hero">
+  <div class="container">
+    <h1>Departments</h1>
+    <p>Choose a department and begin your roleplay career.</p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="assets/jcso.png" height="60">
+        <h3>JCSO</h3>
+        <p>Primary law enforcement across Jackson County.</p>
       </div>
-      <p>Explore all departments at Jackson County Roleplay, including their purpose, department heads, weekly quotas, and application info.</p>
+
+      <div class="card">
+        <img src="assets/mshp.png" height="60">
+        <h3>MSHP</h3>
+        <p>Statewide patrol and highway enforcement.</p>
+      </div>
+
+      <div class="card">
+        <img src="assets/fire-dept.png" height="60">
+        <h3>Fire & EMS</h3>
+        <p>Emergency response, rescue, and medical services.</p>
+      </div>
+
+      <div class="card">
+        <img src="assets/civilia-ops.png" height="60">
+        <h3>Civilian Operations</h3>
+        <p>Businesses, gangs, and civilian roleplay.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- DEPARTMENTS GRID -->
-<main class="container fade-in-up" style="margin-top:32px;">
-  <div class="grid">
-
-    <!-- Lee's Summit Fire Department -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/fire-dept.png" alt="Fire Department" class="hero-logo">
-        <h3>Lee's Summit Fire Department</h3>
-      </div>
-      <p>The Lee's Summit Fire Department is dedicated to protecting the residents of Lee's Summit. Members respond to fires, assist the injured, and ensure community safety every day.</p>
-      <p>
-        <strong>Department Head:</strong> @IA | Reallefty123101<br>
-        <strong>Server Link:</strong> Lee's Summit Fire Department<br>
-        <strong>Weekly Quota:</strong> 0 Hours<br>
-        <strong>Application Status:</strong> Open<br>
-        <strong>Whitelisted Department:</strong> :ssd:
-      </p>
-    </div>
-
-    <!-- Civilian Operations -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/civilian-ops.png" alt="Civilian Operations" class="hero-logo">
-        <h3>Civilian Operations</h3>
-      </div>
-      <p>Civilian Operations serves as JCRP's business backbone. Members can create or join businesses and mafias, or work for existing ones, allowing for a variety of roleplay opportunities.</p>
-      <p>
-        <strong>Department Head:</strong> @MGMT | FBI-03 | Leobro629<br>
-        <strong>Server Link:</strong> Civilian Operations<br>
-        <strong>Weekly Quota:</strong> 0 Hours<br>
-        <strong>Application Status:</strong> Open<br>
-        <strong>Whitelisted Department:</strong> :ssustart:
-      </p>
-    </div>
-
-    <!-- Jackson County Sheriff's Office -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/jcso.png" alt="JCSO" class="hero-logo">
-        <h3>Jackson County Sheriff's Office</h3>
-      </div>
-      <p>The Jackson County Sheriff's Office protects lives, property, and civil rights throughout Jackson County. Officers maintain order, enforce the law, and provide public safety services.</p>
-      <p>
-        <strong>Department Head:</strong> @EC | armyt1d<br>
-        <strong>Server Link:</strong> Jackson County Sheriff's Office<br>
-        <strong>Weekly Quota:</strong> 1 Hour<br>
-        <strong>Application Status:</strong> Open<br>
-        <strong>Whitelisted Department:</strong> :ssustart:<br>
-        <em>Elite Department</em>
-      </p>
-    </div>
-
-    <!-- Missouri State Highway Patrol -->
-    <div class="card">
-      <div class="hero-header">
-        <img src="assets/images/mshp.png" alt="MSHP" class="hero-logo">
-        <h3>Missouri State Highway Patrol</h3>
-      </div>
-      <p>The Missouri State Highway Patrol enforces state law and protects the lives and property of Missouri residents. They maintain traffic safety and respond to emergencies across the state.</p>
-      <p>
-        <strong>Department Head:</strong> @DD | 250-HP | TrooperIsaiah_250<br>
-        <strong>Server Link:</strong> Missouri State Highway Patrol<br>
-        <strong>Weekly Quota:</strong> 1 Hour<br>
-        <strong>Application Status:</strong> Open<br>
-        <strong>Whitelisted Department:</strong> :ssustart:<br>
-        <em>Elite Department</em>
-      </p>
-    </div>
-
-  </div>
-</main>
-
-<!-- FOOTER -->
 <footer>
-  <div class="container footer">&copy; <span id="year"></span> Jackson County Roleplay</div>
+  © 2025 Jackson County Roleplay
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
