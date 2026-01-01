@@ -2,82 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackson County Roleplay</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="logo">
-      Jackson County Roleplay
-      <span class="badge">Public ER:LC</span>
+      <img src="assets/logo.png" class="logo">
+      <span class="badge">JCRP</span>
     </div>
     <nav>
       <a href="index.html" class="active">Home</a>
-      <a href="rules.html">Rules</a>
       <a href="departments.html">Departments</a>
+      <a href="rules.html">Rules</a>
       <a href="marketplace.html">Marketplace</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in-up">
-  <div class="hero-grid container">
-    <div class="card hero-card">
-      <div class="hero-header">
-        <img src="assets/images/logo.png" alt="Jackson County Roleplay Logo" class="hero-logo">
-        <h1>Jackson County Roleplay</h1>
-      </div>
-      <p>A public ER:LC roleplay community based in Missouri’s Jackson County. Focused on realistic roleplay, fair moderation, and welcoming players.</p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-card fade-in-up">
+      <h1>Jackson County Roleplay</h1>
+      <p>
+        A professional, realistic roleplay community focused on immersive
+        scenarios, structured departments, and high-quality roleplay.
+      </p>
+
       <div class="cta">
-        <a class="btn primary pulse" href="https://discord.gg/jcrp" target="_blank">Join Our Discord</a>
-        <a class="btn secondary" href="rules.html">Server Rules</a>
+        <a class="btn primary" href="departments.html">View Departments</a>
+        <a class="btn secondary" href="marketplace.html">Marketplace</a>
       </div>
     </div>
-    <div class="card stats">
-      <div class="stat"><strong>Public</strong><span>Open Server</span></div>
-      <div class="stat"><strong>13+</strong><span>Maturity</span></div>
-      <div class="stat"><strong>Missouri</strong><span>Jackson County</span></div>
+
+    <div class="card hero-card-matched fade-in-up">
+      <h3>Why JCRP?</h3>
+      <p>• Professional staff team</p>
+      <p>• Realistic roleplay standards</p>
+      <p>• Active community & economy</p>
     </div>
   </div>
 </section>
 
-<!-- HOW TO JOIN -->
-<section class="container fade-in-up">
-  <h2>How to Join</h2>
-  <div class="grid">
-    <div class="card"><h3>1. Join Discord</h3><p>Enter our Discord and read the welcome channels.</p></div>
-    <div class="card"><h3>2. Review Rules</h3><p>Understand our roleplay standards and expectations.</p></div>
-    <div class="card"><h3>3. Start Roleplaying</h3><p>Join the ER:LC server and enjoy realistic RP.</p></div>
-  </div>
-</section>
-
-<!-- DEPARTMENTS PREVIEW -->
-<section class="container fade-in-up">
-  <h2>Departments</h2>
-  <div class="grid">
-    <div class="card"><h3>Law Enforcement</h3><p>Traffic enforcement, patrol, investigations.</p></div>
-    <div class="card"><h3>Fire & EMS</h3><p>Fire response, medical RP, emergencies.</p></div>
-    <div class="card"><h3>Civilian</h3><p>Businesses, daily life, story-driven RP.</p></div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="container footer">© <span id="year"></span> Jackson County Roleplay · Not affiliated with real agencies</div>
+  © 2025 Jackson County Roleplay
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
