@@ -1,190 +1,308 @@
-/* ===============================
-   GLOBAL RESET
-================================ */
+:root {
+  --bg-main: #0b0f14;
+  --bg-soft: #0e1422;
+
+  --panel: rgba(255,255,255,0.045);
+  --panel-strong: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.1);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --accent: #3b82f6;
+  --accent-glow: #60a5fa;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  --blur: blur(14px);
+}
+
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* ================= BASE ================= */
 body {
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: #e5e7eb;
-  line-height: 1.7;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(180deg, var(--bg-main), var(--bg-soft));
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* ===============================
-   NAVBAR
-================================ */
-nav {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 26px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 48px 28px;
+}
+
+/* ================= HEADER ================= */
+header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(2, 6, 23, 0.85);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(11,15,20,0.85);
+  backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--border);
 }
 
-.nav-container {
-  max-width: 1400px;
-  margin: auto;
-  padding: 18px 28px;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.brand {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  font-size: 1.6rem;
+  gap: 14px;
   font-weight: 800;
-  color: #38bdf8;
-  letter-spacing: 0.5px;
 }
 
-.nav-links a {
-  margin-left: 28px;
-  text-decoration: none;
-  color: #cbd5f5;
+.logo {
+  height: 44px;
+  border-radius: 10px;
+}
+
+.badge {
+  background: rgba(59,130,246,0.18);
+  color: #dbeafe;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
   font-weight: 500;
-  transition: 0.25s;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
 }
 
-.nav-links a:hover {
-  color: #38bdf8;
+nav a:hover,
+nav a.active {
+  opacity: 1;
 }
 
-/* ===============================
-   HERO
-================================ */
+/* ================= HERO ================= */
 .hero {
-  padding: 140px 20px 100px;
-  text-align: center;
+  padding: 120px 0;
 }
 
-.hero h1 {
-  font-size: 3.6rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, #38bdf8, #22c55e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-  max-width: 850px;
-  margin: 25px auto 0;
-  font-size: 1.15rem;
-  color: #cbd5f5;
-}
-
-/* ===============================
-   SECTIONS
-================================ */
-.section {
-  max-width: 1400px;
-  margin: auto;
-  padding: 110px 25px;
-}
-
-.section-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-/* ===============================
-   CARDS / HERO PANELS
-================================ */
-.card-grid {
+.hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1.35fr 0.65fr;
   gap: 40px;
+  align-items: center;
 }
 
+.hero-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-logo {
+  height: 72px;
+  border-radius: 12px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+.hero-card,
+.hero-card-matched {
+  padding: 44px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ================= GRID SYSTEMS ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 32px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+/* ================= CARDS ================= */
 .card {
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.03)
+    rgba(255,255,255,0.075),
+    rgba(255,255,255,0.02)
   );
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 22px;
-  padding: 40px;
-  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  backdrop-filter: var(--blur);
+  box-shadow:
+    0 14px 35px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.06);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  box-shadow: 0 26px 55px rgba(0,0,0,0.5);
 }
 
-.card img {
-  max-width: 85px;
-  margin-bottom: 22px;
+/* ================= BUTTONS ================= */
+.cta {
+  display: flex;
+  gap: 18px;
+  margin-top: 34px;
 }
 
-.card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-}
-
-.card p {
-  color: #d1d5db;
-  margin-bottom: 18px;
-}
-
-/* ===============================
-   BUTTONS
-================================ */
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #38bdf8, #22c55e);
-  color: #020617;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.25s;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+  color: #fff;
+  box-shadow: 0 0 24px rgba(96,165,250,0.4);
 }
 
-/* ===============================
-   ROBUX BUTTONS
-================================ */
-.robux-buttons a {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 12px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.2);
-  text-decoration: none;
-  color: #e5e7eb;
-  transition: 0.25s;
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 42px rgba(96,165,250,0.75);
 }
 
-.robux-buttons a:hover {
+.btn.secondary {
   background: rgba(255,255,255,0.08);
 }
 
-/* ===============================
-   DONATOR COLOR
-================================ */
-.donator {
-  color: #14b8a6;
-  font-weight: 700;
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.15);
 }
 
-/* ===============================
-   FOOTER
-================================ */
-footer {
+/* ================= STATS ================= */
+.stat {
   text-align: center;
-  padding: 60px 20px;
-  color: #94a3b8;
-  font-size: 0.9rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 26px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+/* ================= MARKETPLACE ================= */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 40px;
+}
+
+.market-card {
+  text-align: center;
+  padding: 30px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+  margin-top: 100px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ================= ANIMATIONS ================= */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .grid,
+  .stats,
+  .market-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .hero-card,
+  .hero-card-matched {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 28px;
+  }
+
+  .cta {
+    flex-direction: column;
+    gap: 18px;
+  }
 }
