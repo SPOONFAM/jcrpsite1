@@ -3,60 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <title>Departments | JCRP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="assets/logo.png" class="logo">
-      <span class="badge">JCRP</span>
+      <img src="assets/logo.png" class="logo" alt="JCRP Logo">
+      <span>JCRP</span>
+      <span class="badge">Departments</span>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
-      <a href="departments.html" class="active">Departments</a>
       <a href="rules.html">Rules</a>
+      <a href="departments.html" class="active">Departments</a>
       <a href="marketplace.html">Marketplace</a>
     </nav>
   </div>
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="container">
-    <h1>Departments</h1>
-    <p>Choose a department and begin your roleplay career.</p>
+  <div class="container hero-card fade-in-up">
+    <h1>Server Departments</h1>
+    <p>
+      JCRP offers a structured, realistic roleplay environment through multiple
+      specialized departments. Each tier represents increased responsibility,
+      training, and authority.
+    </p>
+  </div>
+</section>
 
-    <div class="grid">
-      <div class="card">
-        <img src="assets/jcso.png" height="60">
-        <h3>JCSO</h3>
-        <p>Primary law enforcement across Jackson County.</p>
-      </div>
+<!-- ================= TIER 4 ================= -->
+<section class="container fade-in-up">
+  <h2>Tier 4 — Elite Operations</h2>
 
-      <div class="card">
-        <img src="assets/mshp.png" height="60">
-        <h3>MSHP</h3>
-        <p>Statewide patrol and highway enforcement.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/fire-dept.png" height="60">
-        <h3>Fire & EMS</h3>
-        <p>Emergency response, rescue, and medical services.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/civilia-ops.png" height="60">
-        <h3>Civilian Operations</h3>
-        <p>Businesses, gangs, and civilian roleplay.</p>
-      </div>
+  <div class="grid">
+    <div class="card">
+      <img src="assets/civilia-ops.png" class="logo" alt="Civilian Ops">
+      <h3>Civilian Operations</h3>
+      <p>
+        High-tier civilian roleplay focused on realism, business ownership,
+        political influence, and advanced storyline creation.
+      </p>
     </div>
   </div>
 </section>
 
+<!-- ================= TIER 3 ================= -->
+<section class="container fade-in-up">
+  <h2>Tier 3 — State & Fire Services</h2>
+
+  <div class="grid">
+    <div class="card">
+      <img src="assets/mshp.png" class="logo" alt="MSHP">
+      <h3>Missouri State Highway Patrol</h3>
+      <p>
+        State-level law enforcement handling highway patrol, advanced pursuits,
+        investigations, and statewide operations.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="assets/fire-dept.png" class="logo" alt="Fire Department">
+      <h3>Fire Department</h3>
+      <p>
+        Fire suppression, medical response, rescue operations, and disaster
+        management across the state.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIER 2 ================= -->
+<section class="container fade-in-up">
+  <h2>Tier 2 — County Enforcement</h2>
+
+  <div class="grid">
+    <div class="card">
+      <img src="assets/jcso.png" class="logo" alt="JCSO">
+      <h3>Jackson County Sheriff’s Office</h3>
+      <p>
+        County-wide policing focused on patrol, warrants, investigations,
+        transport, and corrections.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIER 1 ================= -->
+<section class="container fade-in-up">
+  <h2>Tier 1 — Entry Level</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Probationary Civilian</h3>
+      <p>
+        Entry-level civilian roleplay. Learn server rules, roleplay standards,
+        and progression systems before advancing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer>
-  © 2025 Jackson County Roleplay
+  <div class="container">
+    <p>© 2025 Jackson County Roleplay. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
