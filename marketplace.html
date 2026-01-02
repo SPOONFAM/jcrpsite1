@@ -2,134 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Marketplace | Jackson County Roleplay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JCRP | Marketplace</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Stripe -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo">JCRP</div>
-    <div class="nav-links">
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="JCRP Logo" class="logo">
+      Jackson County Roleplay
+    </div>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="departments.html">Departments</a>
       <a href="rules.html">Rules</a>
-      <a href="marketplace.html">Marketplace</a>
-    </div>
+      <a href="departments.html">Departments</a>
+      <a href="#tiers">Marketplace</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Marketplace</h1>
-  <p>Support Jackson County Roleplay while unlocking exclusive perks, promotions, and premium features.</p>
+<!-- ================= HERO ================= -->
+<section class="hero fade-in-up">
+  <div class="container hero-card-matched">
+    <div class="hero-header">
+      <img src="assets/images/logo.png" alt="JCRP Logo" class="hero-logo">
+      <h1>Marketplace</h1>
+    </div>
+    <p>Browse all tiers, donations, paid advertisements, and sponsored giveaways available for Jackson County Roleplay.</p>
+  </div>
 </section>
 
-<!-- TIERS -->
-<section id="tiers" class="section">
-  <h2 class="section-title">Server Tiers</h2>
+<!-- ================= NAV LINKS ================= -->
+<section class="container fade-in-up cta">
+  <a href="#tiers" class="btn primary">Tiers</a>
+  <a href="#donations" class="btn primary">Donations</a>
+  <a href="#paid-ads" class="btn primary">Paid Ads</a>
+  <a href="#sponsored-giveaways" class="btn primary">Sponsored Giveaways</a>
+</section>
 
-  <div class="card-grid">
+<!-- ================= TIERS ================= -->
+<section id="tiers" class="container fade-in-up">
+  <h2>Tiers</h2>
+  <div class="market-grid">
 
-    <!-- PLATINUM -->
-    <div class="card">
-      <img src="assets/Plat.png">
+    <!-- Platinum -->
+    <div class="card market-card">
+      <img src="assets/images/Plat.png" alt="Platinum Tier">
       <h3>Tier 4 | Platinum</h3>
-      <p>Our highest tier with elite perks and priority access across the server.</p>
-      <a class="btn" href="https://buy.stripe.com/6oU9AT6PC7bib0Rdn8cjS04" target="_blank">Buy $24.99</a>
-      <div class="robux-buttons">
-        <a href="https://www.roblox.com/catalog/98614479625198/Jackson-County-Roleplay-Tier-4" target="_blank">2000 Robux</a>
-      </div>
+      <p>$24.99 <br>Or 2000 Robux</p>
+      <p>
+        Platinum Tier is ranked 1st and includes: <br>
+        • $20,000/hour in economy <br>
+        • Custom Role & Office <br>
+        • x3 Moderation resets <br>
+        • Permanent Discord Booster perks <br>
+        • Priority for applications
+      </p>
+      <!-- Stripe -->
+      <stripe-buy-button buy-button-id="buy_btn_1RXIJxFkwZQ3tDxnCk9pSOu7" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-buy-button>
+      <a href="#" class="btn secondary">Buy with Robux</a>
     </div>
 
-    <!-- GOLD -->
-    <div class="card">
-      <img src="assets/Gold.png">
+    <!-- Gold -->
+    <div class="card market-card">
+      <img src="assets/images/Gold.png" alt="Gold Tier">
       <h3>Tier 3 | Gold</h3>
-      <p>Premium roleplay perks with custom roles and high economy bonuses.</p>
-      <a class="btn" href="https://buy.stripe.com/aFa7sLc9W9jqed3erccjS03" target="_blank">Buy $12.99</a>
-      <div class="robux-buttons">
-        <a href="https://www.roblox.com/catalog/111934994233463/Jackson-County-Roleplay-Gold-Tier" target="_blank">1000 Robux</a>
-      </div>
+      <p>$12.99 <br>Or 1000 Robux</p>
+      <p>
+        Gold Tier includes: <br>
+        • $10,000/hour in economy <br>
+        • Custom Role & Office <br>
+        • x3 Moderation resets <br>
+        • Image & GIF perms <br>
+        • Priority Mod Calls
+      </p>
+      <stripe-buy-button buy-button-id="buy_btn_1RXIFLFkwZQ3tDxn0IKzs6GZ" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-buy-button>
+      <a href="#" class="btn secondary">Buy with Robux</a>
     </div>
 
-    <!-- SILVER -->
-    <div class="card">
-      <img src="assets/Silver.png">
+    <!-- Silver -->
+    <div class="card market-card">
+      <img src="assets/images/Silver.png" alt="Silver Tier">
       <h3>Tier 2 | Silver</h3>
-      <p>Balanced perks for consistent players looking to enhance roleplay.</p>
-      <a class="btn" href="https://buy.stripe.com/28EbJ12zm0MU5Gx5UGcjS02" target="_blank">Buy $8.99</a>
-      <div class="robux-buttons">
-        <a href="https://www.roblox.com/catalog/83048806537101/Jackson-County-Roleplay-Silver-Tier" target="_blank">650 Robux</a>
-      </div>
+      <p>$8.99 <br>Or 650 Robux</p>
+      <p>
+        Silver Tier includes: <br>
+        • $5,000/hour in economy <br>
+        • x2 Moderation resets <br>
+        • Custom Office <br>
+        • Image & GIF perms <br>
+        • Priority Mod Calls
+      </p>
+      <stripe-buy-button buy-button-id="buy_btn_1RXI0wFkwZQ3tDxngWZo1k1c" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-buy-button>
+      <a href="#" class="btn secondary">Buy with Robux</a>
     </div>
 
-    <!-- BRONZE -->
-    <div class="card">
-      <img src="assets/bronze.png">
+    <!-- Bronze -->
+    <div class="card market-card">
+      <img src="assets/images/Bronze.png" alt="Bronze Tier">
       <h3>Tier 1 | Bronze</h3>
-      <p>Entry-level perks to enhance your experience and moderation options.</p>
-      <a class="btn" href="https://buy.stripe.com/cNieVd8XKeDKglbbf0cjS01" target="_blank">Buy $3.99</a>
-      <div class="robux-buttons">
-        <a href="https://www.roblox.com/catalog/140013985891370/Jackson-County-Roleplay-Bronze-Tier" target="_blank">300 Robux</a>
-      </div>
+      <p>$3.99 <br>Or 300 Robux</p>
+      <p>
+        Bronze Tier includes: <br>
+        • x1 Moderation reset <br>
+        • Image & GIF perms <br>
+        • Access to Priority Mod Calls
+      </p>
+      <stripe-buy-button buy-button-id="buy_btn_1RWtFiFkwZQ3tDxn1RZSzV7f" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-buy-button>
+      <a href="#" class="btn secondary">Buy with Robux</a>
     </div>
 
   </div>
 </section>
 
-<!-- DONATIONS -->
-<section id="donations" class="section">
-  <h2 class="section-title">Donations</h2>
+<!-- ================= DONATIONS ================= -->
+<section id="donations" class="container fade-in-up">
+  <h2>Donations</h2>
+  <div class="card">
+    <p>If you’re a fan of our community, we offer several donation options to show your support. All contributors receive the <span style="color:#14b8a6;">@Donator</span> role, unlocking GIFs, stickers, emojis, and media in ⁠💬┃general. You can also submit a custom emoji!</p>
 
-  <p style="text-align:center; max-width:900px; margin:0 auto 40px;">
-    All contributors receive the <span class="donator">@Donator</span> role, unlocking GIFs, emojis,
-    stickers, and media access in 💬┃general — plus the ability to submit a custom emoji!
-  </p>
+    <stripe-buy-button buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-buy-button>
 
-  <div style="text-align:center;">
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-    <stripe-buy-button
-      buy-button-id="buy_btn_1RZD1SFkwZQ3tDxncXeac0hw"
-      publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-    </stripe-buy-button>
-  </div>
-
-  <div class="robux-buttons" style="text-align:center; margin-top:30px;">
-    <a href="https://www.roblox.com/catalog/91915072034860" target="_blank">400 Robux</a>
-    <a href="https://www.roblox.com/catalog/81731416816460" target="_blank">750 Robux</a>
-    <a href="https://www.roblox.com/catalog/136767121772862" target="_blank">5000 Robux</a>
+    <div class="cta">
+      <a href="#" class="btn secondary">Small Donation - 400 RBX</a>
+      <a href="#" class="btn secondary">Medium Donation - 750 RBX</a>
+      <a href="#" class="btn secondary">Huge Donation - 5000 RBX</a>
+    </div>
   </div>
 </section>
 
-<!-- PAID ADS -->
-<section id="ads" class="section">
-  <h2 class="section-title">Paid Advertisements</h2>
+<!-- ================= PAID ADS ================= -->
+<section id="paid-ads" class="container fade-in-up">
+  <h2>Paid Advertisements</h2>
+  <div class="card">
+    <p>Promote your server or product via paid pings. Choose a plan below:</p>
+    <stripe-pricing-table pricing-table-id="prctbl_1RUhpAFkwZQ3tDxnz58SwChw" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-pricing-table>
 
-  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-  <stripe-pricing-table pricing-table-id="prctbl_1RUhpAFkwZQ3tDxnz58SwChw"
-    publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-  </stripe-pricing-table>
+    <div class="cta">
+      <a href="#" class="btn secondary">Paid Ads Ping - 250 RBX</a>
+      <a href="#" class="btn secondary">Here Ping - 550 RBX</a>
+      <a href="#" class="btn secondary">Everyone Ping - 750 RBX</a>
+    </div>
+  </div>
 </section>
 
-<!-- SPONSORED GIVEAWAYS -->
-<section id="giveaways" class="section">
-  <h2 class="section-title">Sponsored Giveaways</h2>
+<!-- ================= SPONSORED GIVEAWAYS ================= -->
+<section id="sponsored-giveaways" class="container fade-in-up">
+  <h2>Sponsored Giveaways</h2>
+  <div class="card">
+    <p>Promote your community with a sponsored giveaway. Sponsors provide their own prize, and the giveaway will be posted in ⁠🎁┃giveaways.</p>
+    <stripe-pricing-table pricing-table-id="prctbl_1RZHuDFkwZQ3tDxntz0N3Dry" publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF"></stripe-pricing-table>
 
-  <p style="text-align:center; max-width:900px; margin:0 auto 40px;">
-    Sponsored giveaways promote your community with paid pings and incentive-based exposure.
-    All sponsors provide their own prizes. Giveaway posts appear in 🎁┃giveaways.
-  </p>
-
-  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-  <stripe-pricing-table pricing-table-id="prctbl_1RZHuDFkwZQ3tDxntz0N3Dry"
-    publishable-key="pk_live_51RSpcuFkwZQ3tDxnN1gF6RUlZW2jMfUBHHAtICssBv6GgowUwEVBnkMJnE9xfTfDvbXQqHez0OBOSl5hmiVyUI3D009FIeKTkF">
-  </stripe-pricing-table>
+    <div class="cta">
+      <a href="#" class="btn secondary">Everyone Ping - 950 RBX</a>
+      <a href="#" class="btn secondary">Here Ping - 550 RBX</a>
+    </div>
+  </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
-  © 2025 Jackson County Roleplay — All Rights Reserved
+  <div class="container">
+    &copy; 2025 Jackson County Roleplay
+  </div>
 </footer>
 
 </body>
